@@ -16,7 +16,7 @@ public class Register {
 
     public void sendData() {
         try {
-            // URL of your local server endpoint
+            // URL of your local server endpoint    
             String serverUrl = "http://127.0.0.1:5000/register";
 
             // Create a URL object
