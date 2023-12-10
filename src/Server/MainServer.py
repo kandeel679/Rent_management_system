@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import Database as db
-
+from Machine_learning_model import Model
 app = Flask(__name__)
 CORS(app)
 
@@ -41,6 +41,17 @@ def signin():
     print(user_exists)
 
     return jsonify({'':user_exists })
+
+
+@app.route('/rent',methods = ["POST"])
+def rent():
+    data = request.get_json()
+    print("Received JSON data:", data)
+    year = int(data.get('year'))
+    area = float(data.get('area'))
+    floor = int(data.get('floor'))
+    res = Model.Rentprediction(year,area,floor)
+    return jsonify({'':res})
 
 if __name__ == '__main__':
     app.run(debug=True)
