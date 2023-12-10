@@ -24,7 +24,7 @@ This Rent Apartment Application simplifies the process of finding and renting ap
 
 ## Machine Learning Model
 
-The application employs a trained machine learning model to assist landlords in determining competitive and fair rental prices for their apartments. The model considers factors like location, size, amenities, and market trends to provide accurate and data-driven recommendations.
+The application employs a trained machine learning model to assist landlords in determining competitive and fair rental prices for their apartments. The model considers factors like YearBuilt, size, FLoor to provide a simple recommendation.
 
 
 
@@ -37,6 +37,6 @@ The application employs a trained machine learning model to assist landlords in 
 
 ## Contributors
 
-- [kandeel679]
+- kandeel679
 - [Contributor 1]
 - [Contributor 2]
