@@ -18,25 +18,21 @@ public class Register {
         try {
             // URL of your local server endpoint    
             String serverUrl = "http://127.0.0.1:5000/register";
-
-            // Create a URL object
             URL url = new URL(serverUrl);
-
-            // Open a connection to the server
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            // Set the request method to POST
             connection.setRequestMethod("POST");
-
-            // Enable input and output streams
             connection.setDoOutput(true);
-
-            // Set content type
             connection.setRequestProperty("Content-Type", "application/json");
-
-            // Replace this with your actual data to send
-            // "+user.getEmail()+"
-            String postData = "{\"username\": \""+user.getUsereName()+"\",\"password\":\""+user.getPassword()+"\",\"email\":\""+user.getEmail()+"\"}";
+            String postData = "{" +
+                "\"username\": \"" + user.getUsereName() + "\"," +
+                "\"password\": \"" + user.getPassword() + "\"," +
+                "\"email\": \"" + user.getEmail() + "\"," +
+                "\"first_name\": \"" + user.getFirstName() + "\"," +
+                "\"last_name\": \"" + user.getLastName() + "\"," +
+                "\"physical_add\": \"" + user.getPhysicalAdd() + "\"," +
+                "\"balance\": " + user.getBalanc() + "," +
+                "\"phone_num\": \"" + user.getPhoneNum() + "\"" +
+                "}";
 
             // Get the output stream and write the data
             try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream())) {
@@ -44,7 +40,6 @@ public class Register {
                 wr.write(postDataBytes);
             }
 
-            // Read the response data
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             StringBuilder response = new StringBuilder();
@@ -54,10 +49,9 @@ public class Register {
             }
             reader.close();
 
-            // Print the server response
+            
             System.out.println("Server Response: " + response.toString());
 
-            // Close the connection
             connection.disconnect();
 
         } catch (Exception e) {
