@@ -26,27 +26,17 @@ This Rent Apartment Application simplifies the process of finding and renting ap
 
 The application employs a trained machine learning model to assist landlords in determining competitive and fair rental prices for their apartments. The model considers factors like location, size, amenities, and market trends to provide accurate and data-driven recommendations.
 
-## Getting Started
 
-1. Clone the repository to your local machine.
-2. Set up the necessary dependencies and database configurations.
-3. Run the application locally or deploy it to a cloud platform.
 
 ## Technologies Used
 
 - JavaFX for the user interface
 - SQLite for database management
 - Flask for the server-side application
-- Machine learning libraries (e.g., scikit-learn) for price prediction
+- scikit-learn for Machine learning and price prediction
 
 ## Contributors
 
-- [Your Name]
+- [kandeel679]
 - [Contributor 1]
 - [Contributor 2]
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code for your own purposes. Contributions are welcome!
-
-For detailed instructions on setting up and running the application, please refer to the documentation provided in the project repository.
