@@ -9,26 +9,39 @@ import java.nio.charset.StandardCharsets;
 public class Signin {
     private String userName;
     private String password;
-    private testperson user;
+    private Person user;
     public Signin(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
 
-    public testperson SIGN_IN(){
+    public Person SIGN_IN(int AccountType){
         ArrayList<String> user  = this.getUserFromDatabase();
         if (user.get(0).equals("null")) {
             return null;
         }else{
-            String username = user.get(0);
-            String password = user.get(1);
-            String email = user.get(2);
-            double balance = Double.parseDouble(user.get(3));
-            String physicalAdd = user.get(4);
-            String phoneNum = user.get(5);
-            String firstName = user.get(6);
-            String lastName = user.get(7);
-            this.user = new testperson(username, email, password, firstName, lastName, physicalAdd, balance, phoneNum);
+            if (AccountType == 0) {
+                String username = user.get(0);
+                String password = user.get(1);
+                String email = user.get(2);
+                double balance = Double.parseDouble(user.get(3));
+                String physicalAdd = user.get(4);
+                String phoneNum = user.get(5);
+                String firstName = user.get(6);
+                String lastName = user.get(7);
+                this.user = new LandLord(username, email, password, firstName, lastName, physicalAdd, phoneNum, balance);
+            }else {
+                String username = user.get(0);
+                String password = user.get(1);
+                String email = user.get(2);
+                double balance = Double.parseDouble(user.get(3));
+                String physicalAdd = user.get(4);
+                String phoneNum = user.get(5);
+                String firstName = user.get(6);
+                String lastName = user.get(7);
+                //until the Tenant class be ready to use it in 
+                this.user = new LandLord(username, email, password, firstName, lastName, physicalAdd, phoneNum, balance);
+            }
         }
         return this.user;
     }

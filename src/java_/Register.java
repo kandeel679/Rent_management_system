@@ -8,9 +8,9 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class Register {
-    private testperson user;
+    private Person user;
 
-    public Register(testperson user) {
+    public Register(Person user) {
         this.user = user;
     }
 
@@ -24,14 +24,14 @@ public class Register {
             connection.setDoOutput(true);
             connection.setRequestProperty("Content-Type", "application/json");
             String postData = "{" +
-                "\"username\": \"" + user.getUsereName() + "\"," +
+                "\"username\": \"" + user.getUserName() + "\"," +
                 "\"password\": \"" + user.getPassword() + "\"," +
-                "\"email\": \"" + user.getEmail() + "\"," +
+                "\"email\": \"" + user.getEmailAddress() + "\"," +
                 "\"first_name\": \"" + user.getFirstName() + "\"," +
                 "\"last_name\": \"" + user.getLastName() + "\"," +
-                "\"physical_add\": \"" + user.getPhysicalAdd() + "\"," +
-                "\"balance\": " + user.getBalanc() + "," +
-                "\"phone_num\": \"" + user.getPhoneNum() + "\"" +
+                "\"physical_add\": \"" + user.getPhysicalAddress() + "\"," +
+                "\"balance\": " + user.getBalance() + "," +
+                "\"phone_num\": \"" + user.getPhoneNumber() + "\"" +
                 "}";
 
             // Get the output stream and write the data

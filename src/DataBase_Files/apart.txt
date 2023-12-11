@@ -1,0 +1,3 @@
+twobed,zahrah,600,2000,5
+onebed,tgmo3,300,2020,1
+three,nozha,630,2014,4
