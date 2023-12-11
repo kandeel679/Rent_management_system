@@ -44,7 +44,7 @@ public abstract class Person {
         }
     }
     
-    public abstract HashMap<String,String> DisplayApart();
+    
 
 
     //setters and getters

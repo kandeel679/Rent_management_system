@@ -9,19 +9,19 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
         //Register
-            // LandLord l = new LandLord("yassin", "yassin@gmail.com", "2222", "yassin", "dewa", "00000000000", "nozha", 0)    ;
+            // LandLord l = new LandLord("ali2003", "ali@gmail.com", "1234", "ali", "hosam", "01001010101", "sab3", 0)    ;
             // Register R = new Register(l);
             // R.sendData();
 
         //Signin and casting the person into landlord
-            // Signin s = new Signin("yassin", "2222");
+            // Signin s = new Signin("ali2003", "1234");
             // Person p1 = s.SIGN_IN(0);
             // LandLord l = (LandLord)p1;
             // System.out.println(l.l);
-            // System.out.println(p1.getUserName());
+            // System.out.println(p1.getEmailAddress());
 
         // ai model for predicting the reantal amount 
-            // RentPredictionModel r = new RentPredictionModel(600,2017,2);
+            // RentPredictionModel r = new RentPredictionModel(350,2003,6);
             // r.Predict();
 
         // getting the data from the file to add it into a new apartment 

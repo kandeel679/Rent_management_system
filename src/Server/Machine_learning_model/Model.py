@@ -1,7 +1,9 @@
 import joblib
 
+PC = 'C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\Machine_learning_model\\rentAmountmodel.joblib'
+LAP ='C:\\Users\\kandeel\\Desktop\\AAST\\term 3\\oop\\project\\Rent_management_system\\src\\Server\\Machine_learning_model\\rentAmountmodel.joblib'
 class MyModel:
-    def __init__(self, model_path='C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\Machine_learning_model\\rentAmountmodel.joblib'):
+    def __init__(self, model_path=LAP):
         self.model = joblib.load(model_path)
 
     def predict(self, input_data):

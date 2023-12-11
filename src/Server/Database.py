@@ -1,7 +1,7 @@
 import sqlite3
 import uuid
-DATABASE_PATH = "C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\RMS.db"
-# DATABASE_PATH = "C:\\Users\\kandeel\\Desktop\\AAST\\term 3\\oop\\project\\Rent_management_system\\src\\Server\\RMS.db"
+# DATABASE_PATH = "C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\RMS.db"
+DATABASE_PATH = "C:\\Users\\kandeel\\Desktop\\AAST\\term 3\\oop\\project\\Rent_management_system\\src\\Server\\RMS.db"
 
 # Uncomment the following lines to delete all records from the user table
 # conn = sqlite3.connect(DATABASE_PATH)
