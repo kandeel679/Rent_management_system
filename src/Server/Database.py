@@ -31,6 +31,26 @@ def create_user_table():
 
     conn.commit()
     conn.close()
+def create_Apartment_table():
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+    cur.execute('''CREATE TABLE IF NOT EXISTS Apartment (
+                    ApartmentID INT PRIMARY KEY,
+                    ApartmentType ENUM('Type1', 'Type2', 'Type3'),
+                    Location VARCHAR(255),
+                    ApartmentDescription TEXT,
+                    Area DOUBLE,
+                    YearBuilt INT,
+                    Floor INT,
+                    ApartmentOwnerUsername VARSHAR(255),
+                    RentAmount DOUBLE,
+                    DepositAmount DOUBLE,
+                    ManagementFee DOUBLE,
+                    PlacementDate DATE,
+);''')
+
+    conn.commit()
+    conn.close()
 
 
 def insert(username, password, email, balance, physical_add, phone_num, first_name, last_name):

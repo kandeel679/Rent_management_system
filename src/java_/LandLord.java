@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class LandLord extends Person{
@@ -93,5 +94,11 @@ public class LandLord extends Person{
                 e.printStackTrace();
             }
         return ApartmentList ;
+    }
+
+    @Override
+    public HashMap<String, String> getUserData() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUserData'");
     }
 }

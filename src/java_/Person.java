@@ -2,7 +2,7 @@ package java_;
 
 import java.util.HashMap;
 
-public abstract class Person {
+public abstract class Person implements UserProfile {
     protected String UserName;
     protected String FirstName;
     protected String LastName;

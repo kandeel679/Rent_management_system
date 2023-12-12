@@ -2,7 +2,7 @@ package java_;
 
 import java.util.HashMap;
 
-public class Tenant extends Person{
+public class Tenant extends Person {
     private String EmergencyPersonName;
     private String EmergencyPersonPhoneNum;
     private Apartment selectedApartment;
@@ -24,5 +24,10 @@ public class Tenant extends Person{
 
     public boolean isAvailable(Apartment apart) {
         return false;
+    }
+    @Override
+    public HashMap<String, String> getUserData() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUserData'");
     }
 }
