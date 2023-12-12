@@ -9,25 +9,42 @@ public class Tenant extends Person {
 
  
 
-    public Tenant(String UserName, String EmailAddress, String Password, String FirstName, String LastName,
-            String PhoneNumber, String PhysicalAddress, double Balance) {
-        super(UserName, EmailAddress, Password, FirstName, LastName, PhoneNumber, PhysicalAddress, Balance);
+   
+    public Tenant(String UserName, String Password, String EmailAddress, double Balance, String PhysicalAddress,
+            String PhoneNumber, String FirstName, String LastName) {
+        super(UserName, Password, EmailAddress, Balance, PhysicalAddress, PhoneNumber, FirstName, LastName);
     }
     public void chooseApartment(Apartment selectedApart) {
         this.selectedApartment = selectedApart;
     }
     public HashMap<String, String> DisplayApart() { 
-        HashMap<String,String> userDetails = new HashMap<>();
-        
-        return userDetails; 
-    }
+        HashMap <String,String> aprt = new HashMap<>();
+        if (this.selectedApartment!=null){
+            aprt.put("ApartmentID", String.valueOf(this.selectedApartment.getApartmentID()));
+            aprt.put("Location", this.selectedApartment.getLocation());
+            // Assuming ApartmentDescribtion is a property of your Apartment class
+            // aprt.put("ApartmentDescribtion", this.selectedApartment.getApartmentDescribtion);
+            aprt.put("Area", String.valueOf(this.selectedApartment.getArea()));
+            aprt.put("YearBuilt", String.valueOf(this.selectedApartment.getYearBuilt()));
+            aprt.put("Floor", String.valueOf(this.selectedApartment.getFloor()));
+            aprt.put("OwnerName", this.selectedApartment.getOwnerName());
+            aprt.put("RentAmount", String.valueOf(this.selectedApartment.getRentAmount()));
+            aprt.put("DepositeAmount", String.valueOf(this.selectedApartment.getDepositeAmount()));
+            aprt.put("PlacementDate", this.selectedApartment.getPlacementDate());
+            return aprt;
+        }else{
+            return aprt;
+        }
 
+         
+    }
+    //until writeing the main file
     public boolean isAvailable(Apartment apart) {
         return false;
     }
     @Override
     public HashMap<String, String> getUserData() {
-        // TODO Auto-generated method stub
+       
         throw new UnsupportedOperationException("Unimplemented method 'getUserData'");
     }
 }

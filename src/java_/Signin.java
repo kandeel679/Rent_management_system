@@ -29,7 +29,7 @@ public class Signin {
                 String phoneNum = user.get(5);
                 String firstName = user.get(6);
                 String lastName = user.get(7);
-                this.user = new LandLord(username, email, password, firstName, lastName, physicalAdd, phoneNum, balance);
+                this.user = new LandLord(username, password, email, balance, physicalAdd, phoneNum, firstName, lastName);
             }else {
                 String username = user.get(0);
                 String password = user.get(1);
@@ -40,7 +40,7 @@ public class Signin {
                 String firstName = user.get(6);
                 String lastName = user.get(7);
                 //until the Tenant class be ready to use it in 
-                this.user = new LandLord(username, email, password, firstName, lastName, physicalAdd, phoneNum, balance);
+                this.user = new Tenant(username, password, email, balance, physicalAdd, phoneNum, firstName, lastName);
             }
         }
         return this.user;

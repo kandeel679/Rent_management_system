@@ -1,6 +1,6 @@
 package java_;
 
-import java.util.HashMap;
+
 
 public class Payment {
     private Tenant tenant;
@@ -15,27 +15,36 @@ public class Payment {
         this.selectedApartment = selectedApartment;
     }
 
-    public Invoice generateInvoice(int dueYear,int dueMonth,int dueDay) {
-        // Assuming Invoice class has a constructor that takes relevant parameters
+    public void generateInvoice(int dueYear,int dueMonth,int dueDay) {
         if (this.tenant.makePayment(this.selectedApartment.getDepositeAmount())==-1) {
             this.isPaymentComplete = false;
-            return this.invoice;
+            
         }else{
-            this.invoice = new Invoice(this.tenant,this.selectedApartment, this.selectedApartment.getDepositeAmount(),dueYear, dueMonth, dueDay);
+            this.invoice = new Invoice(this.tenant,this.landlord,this.selectedApartment, this.selectedApartment.getDepositeAmount(),dueYear, dueMonth, dueDay);
+            this.landlord.AddBalance(this.selectedApartment.getDepositeAmount());
+            this.tenant.chooseApartment(this.selectedApartment);
             this.isPaymentComplete = true;
         }
-        // You can add more logic here to calculate the invoice details based on your requirements
-        return this.invoice;
     }
 
-    public HashMap<String, String> completeOrder() {
-        HashMap<String, String> orderDetails = new HashMap<>();
-            orderDetails.put("TenantName", tenant.getLastName());
-            orderDetails.put("LandlordName", landlord.getLastName());
-            orderDetails.put("ApartmentAddress", selectedApartment.getLocation());
-            orderDetails.put("PaymentStatus", String.valueOf(isPaymentComplete));
+    public Invoice Checkout(){
+        if (isPaymentComplete) {
+            
+            return this.invoice;
+        }else{
+            return null;
+        }
+    }
+    
+    
+    // public HashMap<String, String> completeOrder() {
+    //     HashMap<String, String> orderDetails = new HashMap<>();
+    //         orderDetails.put("TenantName", tenant.getLastName());
+    //         orderDetails.put("LandlordName", landlord.getLastName());
+    //         orderDetails.put("ApartmentAddress", selectedApartment.getLocation());
+    //         orderDetails.put("PaymentStatus", String.valueOf(isPaymentComplete));
         
 
-        return orderDetails;
-    }
+    //     return orderDetails;
+    // }
 }

@@ -1,5 +1,8 @@
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from h11 import Data
+import joblib
 import Database as db
 from Machine_learning_model import Model
 app = Flask(__name__)
@@ -10,6 +13,9 @@ CORS(app)
 def home():
     return jsonify({"server":"on"})
 
+
+
+#user
 @app.route('/register', methods=["POST"])
 def register():
     data = request.get_json()
@@ -28,10 +34,10 @@ def register():
 
     return jsonify({'status': 200, 'message': data})
 
-
-
 @app.route('/signin', methods=["POST"])
 def signin():
+
+
     data = request.get_json()
     print("Received JSON data:", data)
 
@@ -42,7 +48,60 @@ def signin():
 
     return jsonify({'':user_exists })
 
+@app.route('/updatebalance',methods=["POST"])
+def updatebalance():
+    data = request.get_json()
+    db.update_balance(data.get("username"),float(data.get("new_balance")))
+    return jsonify({"status": "success", "message": "Apartment added successfully"})
 
+@app.route('/getapartments',methods = ["GET"])
+def getapartmetns():
+    apartments = db.get_all_apartments()
+    print(apartments)
+    return jsonify({'':apartments})
+
+@app.route('/getLandlordByusername' , methods = ["POST"])
+def getLandlordByusername():
+    data = request.get_json()
+    res=db.get_user_by_username(data.get("username"))
+    print(res)
+    return jsonify({'':res}) 
+    
+    
+#apartment
+@app.route('/addapartment', methods=["POST"])
+def add_apartment():
+    try:
+        data = request.get_json()
+        apartmentID = data.get('apartmentID')
+        apartmentType = data.get('apartmentType')
+        location = data.get('location')
+        area = data.get('area')
+        year = data.get('year')
+        floor = data.get('floor')
+        apartmentOwnerUsername = data.get('apartmentOwnerUsername')
+        rentamount = data.get('rentamount')
+        depositamount = data.get('depositamount')
+        PlacementDate = data.get('PlacementDate')
+        db.insertApart(
+            apartmentID, apartmentType, location, area, year, floor,
+            apartmentOwnerUsername, rentamount, depositamount, PlacementDate
+        )
+
+        response = {"status": "success", "message": "Apartment added successfully"}
+        return jsonify(response)
+
+    except Exception as e:
+        print("Error:", e)
+        response = {"status": "error", "message": "Failed to add apartment"}
+        return jsonify(response)
+
+
+
+
+
+
+#ai model
 @app.route('/rent',methods = ["POST"])
 def rent():
     data = request.get_json()
@@ -52,6 +111,9 @@ def rent():
     floor = int(data.get('floor'))
     res = Model.Rentprediction(year,area,floor)
     return jsonify({'':res})
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

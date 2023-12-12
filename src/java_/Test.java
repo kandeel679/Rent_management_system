@@ -1,24 +1,55 @@
 package java_;
-import java.nio.file.Files;
-// import javax.swing.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 import java.util.ArrayList;
-import java.util.List;
+
+import java_.ApartDataManager.ApartmentType;
 
 public class Test {
     public static void main(String[] args) {
         //Register
-            // LandLord l = new LandLord("ahmed_1234", "ali@gmail.com", "1234", "ali", "hosam", "01001010101", "sab3", 0)    ;
-            // Register R = new Register(l);
-            // R.sendData();
-
+        // LandLord l =   new LandLord("ali", "1234", "Ali@gmail.com", 0, "null", "01159222027", "ali", "3mara");
+        // Register R = new Register(l);
+        // R.sendData();
+        
         //Signin and casting the person into landlord
-            // Signin s = new Signin("ali2003", "1234");
+            // Signin s = new Signin("ali", "1234");
             // Person p1 = s.SIGN_IN(0);
-            // LandLord l = (LandLord)p1;
-            // Apartment a = new Apartment(1,"Downtown","CozyStudioApartment",500,2015,4,"JohnDoe",1200,1500,"2023-03-01");
-            // l.addApartment(a);
+            // LandLord landlord1 = (LandLord)p1;
+            // Apartment a = new Apartment(8,ApartmentType.threebedroom,"tgmo3-one",5000,2004,2,landlord1,6000,6000,"2023-12-12");
+            // a.AddApartment();
+
+            // Signin s2 = new Signin("kandeel", "1234");
+            // Person p2 = s2.SIGN_IN(1);
+            // Tenant user = (Tenant)p2;
+            // AprtSearch as = new AprtSearch(user);
+            // ArrayList<Apartment> aprts =as.getApartmentList();
+
+            // Payment p =new Payment(user, aprts.get(6).GetLandlordById(),aprts.get(6) );
+            // p.generateInvoice(2020, 1, 1);
+            // p.Checkout();
+
+
+            // user.AddBalance(50000);
+           
+        
+        // get all the apartments for the database into a arraylist
+            // AprtSearch as = new AprtSearch(null);
+            // ArrayList<Apartment> aprts = as.getApartmentList();
+            // LandLord landlord = (aprts.get(1).GetLandlordById());
+
+            // Payment p = new Payment(user, landlord, aprts.get(1));
+            // p.generateInvoice(2023, 12, 25);
+            // p.Checkout();
+
+
+        // landlord1.getApartments();
+        // System.out.println(landlord1.DisplayAparts());
+
+
+
+        //add apartment
+            // Apartment a = new Apartment(7,ApartmentType.threebedroom,"midtwon",1100,2002,18,landlord1,  1200,1500,"2023-03-01");
+            // a.AddApartment();
             
             
 
@@ -26,22 +57,8 @@ public class Test {
             // RentPredictionModel r = new RentPredictionModel(350,2003,6);
             // r.Predict();
 
-        // getting the data from the file to add it into a new apartment 
-        //  ArrayList<Apartment> apartments = new ArrayList<>();
 
-        // try {
-        //     Path filePath = Paths.get("C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\DataBase_Files\\apart.txt");
-        //     List<String> lines = Files.readAllLines(filePath);
-        //     for (String line : lines) {
-        //          String[] data = line.split(",");
-        //          Apartment a = new Apartment(Integer.parseInt(data[0]), data[1],data[2], Double.parseDouble(data[3]),Integer.parseInt(data[4]),Integer.parseInt(data[5]), data[6],
-        //                                      Double.parseDouble(data[7]), Double.parseDouble(data[8]), (String)data[9]);
-        //          apartments.add(a);
 
-        //     }
-        //     } catch (Exception e) {
-        //         e.printStackTrace();
-        //     }
-        // }
+
     }
 }

@@ -1,24 +1,26 @@
 import sqlite3
 import uuid
+
+from h11 import Data
 DATABASE_PATH = "C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\RMS.db"
 # DATABASE_PATH = "C:\\Users\\kandeel\\Desktop\\AAST\\term 3\\oop\\project\\Rent_management_system\\src\\Server\\RMS.db"
 
 # Uncomment the following lines to delete all records from the user table
 # conn = sqlite3.connect(DATABASE_PATH)
 # cur = conn.cursor()
-# cur.execute('''Drop TABLE user''')
+# cur.execute('''Drop TABLE Apartment''')
 # conn.close()
 
 
 # conn = sqlite3.connect(DATABASE_PATH)
 # cur = conn.cursor()
-# cur.execute('''DELETE FROM user;''')
+# cur.execute('''DELETE FROM Apartment WHERE apartmentID = 8;''')
 # conn.close()
 
 def create_user_table():
     conn = sqlite3.connect(DATABASE_PATH)
     cur = conn.cursor()
-    cur.execute('''CREATE TABLE IF NOT EXISTS user (
+    cur.execute('''CREATE TABLE IF NOT EXISTS User (
                 username TEXT PRIMARY KEY,
                 password TEXT,
                 email TEXT,
@@ -26,7 +28,9 @@ def create_user_table():
                 physical_add TEXT,
                 phone_num TEXT,
                 first_name TEXT,
-                last_name TEXT
+                last_name TEXT,
+                apartId INT,
+                FOREIGN KEY (apartId) REFERENCES Apartment(apartmentID)
              )''')
 
     conn.commit()
@@ -34,25 +38,136 @@ def create_user_table():
 def create_Apartment_table():
     conn = sqlite3.connect(DATABASE_PATH)
     cur = conn.cursor()
-    cur.execute('''CREATE TABLE IF NOT EXISTS Apartment (
-                    ApartmentID INT PRIMARY KEY,
-                    ApartmentType ENUM('Type1', 'Type2', 'Type3'),
-                    Location VARCHAR(255),
-                    ApartmentDescription TEXT,
-                    Area DOUBLE,
-                    YearBuilt INT,
-                    Floor INT,
-                    ApartmentOwnerUsername VARSHAR(255),
-                    RentAmount DOUBLE,
-                    DepositAmount DOUBLE,
-                    ManagementFee DOUBLE,
-                    PlacementDate DATE,
-);''')
+    cur.execute('''CREATE TABLE Apartment (
+            apartmentID INT PRIMARY KEY,
+            apartmentType TEXT,
+            location VARCHAR(255),
+            area DOUBLE,
+            year INT,
+            floor INT,
+            apartmentOwnerUsername VARCHAR(255),
+            rentamount DOUBLE,
+            depositamount DOUBLE,
+            PlacementDate DATE,
+            FOREIGN KEY (apartmentOwnerUsername) REFERENCES User(username)
+            );'''
+)
 
     conn.commit()
     conn.close()
 
 
+#Apartment
+def insertApart(apartmentID, apartmentType, location, area, year, floor,
+                apartmentOwnerUsername, rentamount, depositamount, PlacementDate):
+  
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+    try:
+        cur.execute('''
+            INSERT INTO Apartment (
+                apartmentID, apartmentType, location, area, year, floor,
+                apartmentOwnerUsername, rentamount, depositamount, PlacementDate
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            apartmentID, apartmentType, location, area, year, floor,
+            apartmentOwnerUsername, rentamount, depositamount, PlacementDate
+        ))
+
+        conn.commit()
+        print("Apartment inserted successfully!")
+    
+    except Exception as e:
+        print("Error:", e)
+    
+    finally:
+        conn.close()
+def remove_apartment_by_id(apartment_id):
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+
+    try:
+        # Execute the DELETE statement
+        cur.execute('''
+            DELETE FROM Apartment
+            WHERE apartmentID = ?;
+        ''', (apartment_id,))
+
+        # Commit the changes
+        conn.commit()
+        print(f"Apartment with ID {apartment_id} removed successfully.")
+
+    except Exception as e:
+        # Handle the exception (e.g., print an error message)
+        print("Error:", e)
+
+    finally:
+        # Close the database connection
+        conn.close()
+def get_apartment_info_by_id(apartment_id):
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+
+    try:
+        # Execute the SELECT statement
+        cur.execute('''
+            SELECT * FROM Apartment
+            WHERE apartmentID = ?;
+        ''', (apartment_id,))
+
+        # Fetch the results
+        result = cur.fetchone()
+
+        if result:
+            # Convert the result to a dictionary for easy access
+            columns = [column[0] for column in cur.description]
+            apartment_info = dict(zip(columns, result))
+            return apartment_info
+        else:
+            print(f"No apartment found with ID {apartment_id}")
+            return None
+
+    except Exception as e:
+        # Handle the exception (e.g., print an error message)
+        print("Error:", e)
+        return None
+
+    finally:
+        # Close the database connection
+        conn.close()    
+def get_all_apartments():
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+
+    try:
+        # Execute the SELECT statement to get all apartments
+        cur.execute('''
+            SELECT * FROM Apartment;
+        ''')
+
+        # Fetch all results
+        results = cur.fetchall()
+
+        if results:
+            # Convert the results to a list of strings in the desired format
+            columns = [column[0] for column in cur.description]
+            apartments = ['_'.join(map(str, row)) for row in results]
+            return apartments
+        else:
+            print("No apartments found in the database.")
+            return None
+
+    except Exception as e:
+        # Handle the exception (e.g., print an error message)
+        print("Error:", e)
+        return None
+
+    finally:
+        # Close the database connection
+        conn.close()
+    
+    
+#User
 def insert(username, password, email, balance, physical_add, phone_num, first_name, last_name):
     conn = sqlite3.connect(DATABASE_PATH)
     cur = conn.cursor()
@@ -64,10 +179,7 @@ def insert(username, password, email, balance, physical_add, phone_num, first_na
 
 
     conn.commit()
-    conn.close()
-
-
-  
+    conn.close()  
 def CheckUser(username,password):
     conn = sqlite3.connect(DATABASE_PATH)
     cur = conn.cursor()
@@ -78,11 +190,55 @@ def CheckUser(username,password):
     conn.commit()
     conn.close()
     return result
+def update_balance(username, new_balance):
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+    try:
 
-    
+        update_sql = "UPDATE User SET balance = ? WHERE username = ?"
 
+        cur.execute(update_sql, (new_balance, username))
 
+        conn.commit()
 
+        print(f"Balance for user {username} updated successfully.")
+
+    except sqlite3.Error as e:
+        print("SQLite error:", e)
+
+    finally:
+        conn.close()
+def get_user_by_username(username):
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+    try:
+        select_sql = '''SELECT * FROM User WHERE username = ?'''
+        cur.execute(select_sql, (username,))
+
+        user_data = cur.fetchone()
+        print(user_data)
+        if user_data:
+            res = ','.join(map(str, user_data))
+            return res
+        else:
+            print(f"No user found with username: {username}")
+            return None
+
+    except sqlite3.Error as e:
+        print("SQLite error:", e)
+
+    finally:
+        if conn:
+            conn.close()
+            
+# create_user_table()
+# create_Apartment_table()
+
+# Example usage
+
+# apartment_id_to_get_info = 1  # Replace with the actual ID you want to retrieve
+# apartment_info = get_apartment_info_by_id(apartment_id_to_get_info)
+# print(apartment_info)
 
 # insert("ahmed", "1234", "youssef@adf.com", 0.0, "asdf", "01066276067", " kandeel", "youssef")
 

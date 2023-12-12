@@ -1,5 +1,11 @@
 package java_;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public abstract class Person implements UserProfile {
@@ -12,7 +18,7 @@ public abstract class Person implements UserProfile {
     protected String PhysicalAddress;
     protected double Balance;
 
-    public Person(String UserName,String EmailAddress,String Password, String FirstName, String LastName,  String PhoneNumber,  String PhysicalAddress,double Balance) {
+    public Person(String UserName,String Password,String EmailAddress,double Balance,String PhysicalAddress,  String PhoneNumber ,String FirstName, String LastName) {
         this.UserName = UserName;
         this.EmailAddress = EmailAddress;
         this.Password = Password;
@@ -29,9 +35,10 @@ public abstract class Person implements UserProfile {
         if (x<=0) {
             return -1;
         }
-       else{
-        this.Balance += x;
-        return this.Balance;
+        else{
+            this.Balance += x;
+            this.updateBalance();
+            return this.Balance;
        }
     }
     public double makePayment(double amount){
@@ -39,11 +46,64 @@ public abstract class Person implements UserProfile {
             return -1; 
         }
         else {
-            this.Balance += amount; 
+            this.Balance -= amount; 
+            this.updateBalance();
             return this.Balance;
         }
     }
     
+    public void updateBalance(){
+         try {
+        URL url = new URL("http://127.0.0.1:5000/updatebalance");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+       
+        connection.setRequestMethod("POST");
+
+        
+        connection.setRequestProperty("Content-Type", "application/json");
+
+        
+        connection.setDoOutput(true);
+
+        
+        String postData = "{" +
+                "\"username\": \"" + this.UserName + "\"," +
+                "\"new_balance\": \"" + this.Balance + "\"" +
+                "}";
+        System.out.println("Request Payload: " + postData);
+
+
+        // Get the output stream and write the data
+        try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream())) {
+            byte[] postDataBytes = postData.getBytes(StandardCharsets.UTF_8);
+            wr.write(postDataBytes);
+        }
+
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String line;
+        StringBuilder response = new StringBuilder();
+
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        reader.close();
+        
+        
+        // StringBuilder res = response.replace(0,17,"");
+        // String res2 = res.toString().replaceAll("}","").replaceAll(" ", "");
+
+        
+        System.out.println("Response:" + response.toString());
+        
+        
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
+}
     
 
 

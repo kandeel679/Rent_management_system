@@ -7,11 +7,12 @@ public class Invoice {
     private static int ID=0;
     private Tenant tenant;
     private Apartment rentedApartment;
+    private LandLord landlord;
     private LocalDate issueDate;
     private LocalDate dueDate;
     private double amount;
 
-    public Invoice(Tenant tenant, Apartment rentedApartment, double amount, int dueYear,int dueMonth,int dueDay) {
+    public Invoice(Tenant tenant,LandLord landlord, Apartment rentedApartment, double amount, int dueYear,int dueMonth,int dueDay) {
         Invoice.ID ++;
         this.tenant = tenant;
         this.rentedApartment = rentedApartment;
