@@ -12,4 +12,4 @@ id,loction,apartmentDescribtion,area,yearBuilt,Floor,OwnerName,ReantAmount,depos
 11,Suburbia,CozyCottage,800,2008,1,EthanTaylor,1700,2000,2023-08-01
 12,Downtown,LuxuryHigh-Rise,1100,2011,20,AvaMoore,2500,3000,2023-08-15
 13,Riverside,RiversideBungalow,750,2013,3,NoahHall,1600,1800,2023-09-01
-||
+1,DowntownCozyStudioApartment,500.02015,4JohnDoe,1200.01500.0,2023-03-01

@@ -5,42 +5,37 @@ import java.util.HashMap;
 public class Payment {
     private Tenant tenant;
     private LandLord landlord;
-    private Apartment selectedapart;
+    private Apartment selectedApartment;
     private Invoice invoice;
-    private boolean Payment;
-    public Payment(Tenant tenant, LandLord landlord, Apartment selectedapart) {
+    private boolean isPaymentComplete;
+
+    public Payment(Tenant tenant, LandLord landlord, Apartment selectedApartment) {
         this.tenant = tenant;
         this.landlord = landlord;
-        this.selectedapart = selectedapart;
+        this.selectedApartment = selectedApartment;
     }
-    public boolean CheackApart(){
 
-        // code ~~>>
-        
-        return false;
-    }
-    public boolean Balance(){
-
-        // code ~~>>
-        
-        return false;
-    }
-    public Invoice generateInvoice(){
-
-        // code ~~>>
-        
+    public Invoice generateInvoice(int dueYear,int dueMonth,int dueDay) {
+        // Assuming Invoice class has a constructor that takes relevant parameters
+        if (this.tenant.makePayment(this.selectedApartment.getDepositeAmount())==-1) {
+            this.isPaymentComplete = false;
+            return this.invoice;
+        }else{
+            this.invoice = new Invoice(this.tenant,this.selectedApartment, this.selectedApartment.getDepositeAmount(),dueYear, dueMonth, dueDay);
+            this.isPaymentComplete = true;
+        }
+        // You can add more logic here to calculate the invoice details based on your requirements
         return this.invoice;
     }
 
+    public HashMap<String, String> completeOrder() {
+        HashMap<String, String> orderDetails = new HashMap<>();
+            orderDetails.put("TenantName", tenant.getLastName());
+            orderDetails.put("LandlordName", landlord.getLastName());
+            orderDetails.put("ApartmentAddress", selectedApartment.getLocation());
+            orderDetails.put("PaymentStatus", String.valueOf(isPaymentComplete));
+        
 
-    public HashMap<String,String> completeOrder(){
-
-        // code ~~>>
-
-        HashMap<String,String> h = new HashMap<>();
-        return h;
-
+        return orderDetails;
     }
-
-
 }

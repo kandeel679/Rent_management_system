@@ -12,10 +12,10 @@ public class Apartment {
     private String OwnerName;
     private double RentAmount;
     private double DepositeAmount;
-    private double ManagmentFee;
     private String PlacementDate;
-
-    public Apartment(int ApartmentID,  String Location, String ApartmentDescribtion, double Area, int YearBuilt, int Floor, LandLord ApartmentOwner, double RentAmount, double DepositeAmount, double ManagmentFee, String PlacementDate) {
+    
+    public Apartment(int ApartmentID,  String Location, String ApartmentDescribtion, double Area, int YearBuilt, int Floor,
+                     LandLord ApartmentOwner, double RentAmount, double DepositeAmount, String PlacementDate) {
         this.ApartmentID = ApartmentID; 
         this.Location = Location;
         this.ApartmentDescribtion = ApartmentDescribtion;
@@ -28,7 +28,14 @@ public class Apartment {
         this.PlacementDate = PlacementDate;
         
     }
-    public Apartment(int ApartmentID,  String Location, String ApartmentDescribtion, double Area, int YearBuilt, int Floor, String OwnerName, double RentAmount, double DepositeAmount, double ManagmentFee, String PlacementDate) {
+    public String getOwnerName() {
+        return OwnerName;
+    }
+    public void setOwnerName(String ownerName) {
+        OwnerName = ownerName;
+    }
+    public Apartment(int ApartmentID,  String Location, String ApartmentDescribtion, double Area, int YearBuilt, int Floor,
+                     String OwnerName, double RentAmount, double DepositeAmount, String PlacementDate) {
         this.ApartmentID = ApartmentID; 
         this.Location = Location;
         this.ApartmentDescribtion = ApartmentDescribtion;
@@ -119,13 +126,6 @@ public boolean isRented(){
         DepositeAmount = depositeAmount;
     }
 
-    public double getManagmentFee() {
-        return ManagmentFee;
-    }
-
-    public void setManagmentFee(double managmentFee) {
-        ManagmentFee = managmentFee;
-    }
 
     public String getPlacementDate() {
         return PlacementDate;
@@ -133,6 +133,12 @@ public boolean isRented(){
 
     public void setPlacementDate(String placementDate) {
         PlacementDate = placementDate;
+    }
+    public String getId() {
+        return null;
+    }
+    public String getOtherData() {
+        return null;
     }
 
 }
