@@ -75,7 +75,7 @@ public class Invoice {
     public HashMap<String, Object> displayInvoice() {
         HashMap<String, Object> invoiceInfo = new HashMap<>();
         invoiceInfo.put("ID", ID);
-        invoiceInfo.put("Tenant", tenant.getLastName());
+        invoiceInfo.put("Tenant", tenant.getUserName());
         invoiceInfo.put("Rented Apartment", rentedApartment.getLocation());
         invoiceInfo.put("Issue Date", issueDate);
         invoiceInfo.put("Due Date", dueDate);

@@ -1,7 +1,6 @@
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from h11 import Data
 import joblib
 import Database as db
 from Machine_learning_model import Model
