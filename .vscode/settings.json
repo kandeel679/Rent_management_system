@@ -1,6 +1,4 @@
 {
-    "python.analysis.typeCheckingMode": "basic",
-    "python.analysis.autoImportCompletions": true,
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "c:\\Java\\javafx-sdk-21.0.1\\lib\\javafx.base.jar",
