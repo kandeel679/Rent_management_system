@@ -42,9 +42,5 @@ public class Tenant extends Person {
     public boolean isAvailable(Apartment apart) {
         return false;
     }
-    @Override
-    public HashMap<String, String> getUserData() {
-       
-        throw new UnsupportedOperationException("Unimplemented method 'getUserData'");
-    }
+
 }

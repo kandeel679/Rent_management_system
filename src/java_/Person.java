@@ -105,7 +105,18 @@ public abstract class Person implements UserProfile {
     
 }
     
-
+@Override
+public HashMap<String, String> getUserData() {
+   HashMap<String,String> userdata = new HashMap<>();
+   userdata.put("firstname", this.FirstName);
+   userdata.put("username", this.UserName);
+   userdata.put("lastname", this.LastName);
+   userdata.put("email", this.EmailAddress);
+   userdata.put("add", this.PhysicalAddress);
+   userdata.put("phonenum", this.PhoneNumber);
+   userdata.put("balance", String.valueOf(this.Balance));
+   return userdata;
+}
 
     //setters and getters
     

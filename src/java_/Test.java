@@ -7,27 +7,29 @@ import java_.ApartDataManager.ApartmentType;
 public class Test {
     public static void main(String[] args) {
         //Register
-        // LandLord l =   new LandLord("ali", "1234", "Ali@gmail.com", 0, "null", "01159222027", "ali", "3mara");
+        // LandLord l =   new LandLord("yassin", "12345", "mostafa@gmail.com", 0, "tagamo3", "01159222027", "ahmed", "zidan");
         // Register R = new Register(l);
         // R.sendData();
         
-        //Signin and casting the person into landlord
-            // Signin s = new Signin("ali", "1234");
+        // Signin and casting the person into landlord
+            // Signin s = new Signin("yassin", "12345");
             // Person p1 = s.SIGN_IN(0);
             // LandLord landlord1 = (LandLord)p1;
-            // Apartment a = new Apartment(8,ApartmentType.threebedroom,"tgmo3-one",5000,2004,2,landlord1,6000,6000,"2023-12-12");
+            // Apartment a = new Apartment(10,ApartmentType.Studio,"tgmo3-one",5000,2004,2,landlord1,6000,6000,"2023-12-12");
             // a.AddApartment();
 
-            // Signin s2 = new Signin("kandeel", "1234");
-            // Person p2 = s2.SIGN_IN(1);
-            // Tenant user = (Tenant)p2;
-            // AprtSearch as = new AprtSearch(user);
-            // ArrayList<Apartment> aprts =as.getApartmentList();
 
-            // Payment p =new Payment(user, aprts.get(6).GetLandlordById(),aprts.get(6) );
-            // p.generateInvoice(2020, 1, 1);
-            // p.Checkout();
+            Signin s2 = new Signin("ahmed", "1234");
+            Person p2 = s2.SIGN_IN(1);
+            Tenant user = (Tenant)p2;
+            AprtSearch as = new AprtSearch(user);
+            ArrayList<Apartment> aprts =as.getApartmentList();
 
+            Payment p =new Payment(user, aprts.get(2).GetLandlordById(),aprts.get(2) );
+            p.generateInvoice(2020, 1, 1);
+            Invoice i = p.Checkout();
+            System.out.println(i.displayInvoice());
+            
 
             // user.AddBalance(50000);
            
