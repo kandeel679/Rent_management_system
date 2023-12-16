@@ -19,16 +19,16 @@ public class Test {
             // a.AddApartment();
 
 
-            Signin s2 = new Signin("ahmed", "1234");
-            Person p2 = s2.SIGN_IN(1);
-            Tenant user = (Tenant)p2;
-            AprtSearch as = new AprtSearch(user);
-            ArrayList<Apartment> aprts =as.getApartmentList();
+            // Signin s2 = new Signin("ahmed", "1234");
+            // Person p2 = s2.SIGN_IN(1);
+            // Tenant user = (Tenant)p2;
+            // AprtSearch as = new AprtSearch(user);
+            // ArrayList<Apartment> aprts =as.getApartmentList();
 
-            Payment p =new Payment(user, aprts.get(2).GetLandlordById(),aprts.get(2) );
-            p.generateInvoice(2020, 1, 1);
-            Invoice i = p.Checkout();
-            System.out.println(i.displayInvoice());
+            // Payment p =new Payment(user, aprts.get(2).GetLandlordById(),aprts.get(2) );
+            // p.generateInvoice(2020, 1, 1);
+            // Invoice i = p.Checkout();
+            // System.out.println(i.displayInvoice());
             
 
             // user.AddBalance(50000);

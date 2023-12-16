@@ -8,7 +8,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
-public abstract class Person implements UserProfile {
+public  class Person implements UserProfile {
     protected String UserName;
     protected String FirstName;
     protected String LastName;

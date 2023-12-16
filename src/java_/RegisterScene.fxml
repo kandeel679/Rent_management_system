@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_.SceneController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="242.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="251.0" fitWidth="242.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Property_Real_Estate_logo_6.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="9.0" prefHeight="40.0" prefWidth="331.0" text="Register">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="89.0" prefHeight="26.0" prefWidth="71.0" text="Username">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernametext" alignment="TOP_LEFT" cacheShape="false" layoutX="109.0" layoutY="88.0" prefHeight="25.0" prefWidth="91.0" />
+            <Label layoutX="209.0" layoutY="88.0" prefHeight="24.0" prefWidth="65.0" text="Frist Name">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="122.0" prefHeight="26.0" prefWidth="71.0" text="Phone num">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="phonenumtext" alignment="TOP_LEFT" cacheShape="false" layoutX="108.0" layoutY="123.0" prefHeight="25.0" prefWidth="91.0" />
+            <Label layoutX="209.0" layoutY="123.0" prefHeight="24.0" prefWidth="70.0" text="Last Name">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="155.0" prefHeight="26.0" prefWidth="48.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailtext" alignment="TOP_LEFT" cacheShape="false" layoutX="108.0" layoutY="156.0" prefHeight="25.0" prefWidth="145.0" />
+            <PasswordField fx:id="passwordtext" layoutX="108.0" layoutY="194.0" prefHeight="25.0" prefWidth="146.0" />
+            <Label layoutX="27.0" layoutY="194.0" prefHeight="24.0" prefWidth="71.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="239.0" prefHeight="24.0" prefWidth="115.0" text="Physical Address">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="fristnametext" alignment="TOP_LEFT" cacheShape="false" layoutX="277.0" layoutY="88.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="lastnametext" alignment="TOP_LEFT" cacheShape="false" layoutX="277.0" layoutY="123.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="phyaddtext" alignment="TOP_LEFT" cacheShape="false" layoutX="155.0" layoutY="238.0" prefHeight="28.0" prefWidth="100.0" />
+            <Button fx:id="registerbtn" layoutX="88.0" layoutY="319.0" mnemonicParsing="false" onAction="#RegisterUser" prefHeight="28.0" prefWidth="190.0" style="-fx-background-color: #263F73;" text="Register" textFill="WHITE" AnchorPane.leftAnchor="88.0">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="314.0" layoutY="38.0" mnemonicParsing="false" onAction="#BackToSignin" prefHeight="21.0" prefWidth="39.0" style="-fx-background-color: #263F73;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <ChoiceBox fx:id="accType" layoutX="273.0" layoutY="239.0" prefHeight="25.0" prefWidth="83.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -12,18 +12,18 @@
         },
         {
             "type": "java",
-            "name": "App",
+            "name": "Main",
             "request": "launch",
-            "mainClass": "java_.App",
-            "projectName": "Rent_management_system_8fde4c3d",
-            "vmArgs": "--module-path C:\\Java\\javafx-sdk-21.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+            "mainClass": "java_.Main",
+            "projectName": "Rent_management_system_abb5481b"
+            ,"vmArgs": "--module-path C:\\Java\\javafx-sdk-21.0.1\\lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
             "name": "Test",
             "request": "launch",
             "mainClass": "java_.Test",
-            "projectName": "Rent_management_system_8fde4c3d"
+            "projectName": "Rent_management_system_abb5481b"
         }
     ]
 }
