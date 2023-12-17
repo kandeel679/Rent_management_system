@@ -17,9 +17,9 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         primaryStage.setTitle("PropTrackR");
-        primaryStage.setScene(scene);
+        primaryStage.setScene(scene); 
         primaryStage.setResizable(false);
-
+        // main color: #263F73
         // Image icon = new Image("C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\java_\\Property_Real_Estate_logo_5.png");
         // primaryStage.getIcons().add(icon);
 

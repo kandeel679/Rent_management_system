@@ -16,6 +16,9 @@ public class Apartment implements ApartDataManager {
     private String Location;
     private double Area;
     private int YearBuilt;
+    public String getStringApartmentType() {
+        return StringApartmentType;
+    }
     private int Floor;
     private LandLord ApartmentOwner;
     private String OwnerName;
@@ -89,7 +92,7 @@ public class Apartment implements ApartDataManager {
         // Create JSON data for the apartment
         String postData = "{" +
             "\"apartmentID\": " + this.getApartmentID() + "," +
-            "\"apartmentType\": \"" + this.getApartmentType() + "\"," +
+            "\"apartmentType\": \"" + this.getStringApartmentType()+ "\"," +
             "\"location\": \"" + this.getLocation() + "\"," +
             "\"area\": " + this.getArea() + "," +
             "\"year\": " + this.getYearBuilt() + "," +
@@ -126,7 +129,43 @@ public class Apartment implements ApartDataManager {
 }
 
    
+public static int getApartmentNewID(){
+    int id=-1;
+ try {
+        URL url = new URL("http://127.0.0.1:5000/getmaxapratid");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("Content-Type", "application/json");
+    
+        // Get the response
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        StringBuilder response = new StringBuilder();
+        String line;
+    
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+    
+        reader.close();
+    
+        // Process the response
+        String res = response.toString();
+        String cleanedData = res.replaceAll("[{}\"]", "");
+        String cleanedData1 = cleanedData.replaceAll("[:\\[\\] ]", "");
+        // String[] dataArray = cleanedData1.split(",");
+    
+        // Print the cleaned data
+        id = Integer.parseInt(cleanedData1);
+       
+        return id;
+    
+    } catch (Exception e) {
+        e.printStackTrace();
+        }
+        return id;
+    }
+    
 
 public LandLord GetLandlordById(){
     LandLord L;

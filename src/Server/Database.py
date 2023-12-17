@@ -164,7 +164,12 @@ def get_all_apartments():
     finally:
         # Close the database connection
         conn.close()
-    
+def getmaxaprtid():
+    conn=sqlite3.connect(DATABASE_PATH)
+    cur=conn.cursor()
+    cur.execute('''SELECT max(apartmentID) from Apartment; ''')
+    results = cur.fetchall()
+    return results[0][0]+1
     
 #User
 def insert(username, password, email, balance, physical_add, phone_num, first_name, last_name):
@@ -233,7 +238,12 @@ def get_user_by_username(username):
 # create_user_table()
 # create_Apartment_table()
 
+
+
+
 # Example usage
+
+# print(getmaxaprtid())
 
 # apartment_id_to_get_info = 1  # Replace with the actual ID you want to retrieve
 # apartment_info = get_apartment_info_by_id(apartment_id_to_get_info)

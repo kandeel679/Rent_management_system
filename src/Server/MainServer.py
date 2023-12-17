@@ -95,8 +95,10 @@ def add_apartment():
         response = {"status": "error", "message": "Failed to add apartment"}
         return jsonify(response)
 
-
-
+@app.route('/getmaxapratid',methods = ["GET"])
+def getmaxapratid():
+    newid=db.getmaxaprtid()
+    return({'':newid})
 
 
 

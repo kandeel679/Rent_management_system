@@ -12,18 +12,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 public class SceneController implements Initializable {
-    @FXML TextField usernametext;
-    @FXML TextField phonenumtext;
-    @FXML TextField emailtext;
-    @FXML TextField phyaddtext;
-    @FXML TextField fristnametext;
-    @FXML TextField passwordtext;
-    @FXML TextField lastnametext;
-
+    @FXML private TextField usernametext;
+    @FXML private TextField phonenumtext;
+    @FXML private TextField emailtext;
+    @FXML private TextField phyaddtext;
+    @FXML private TextField fristnametext;
+    @FXML private TextField passwordtext;
+    @FXML private TextField lastnametext;
+    @FXML private Label wronglabel;
     @FXML private ChoiceBox<String> accType;
     private String[] Types = {"LandLord","Tenant"};
    
@@ -59,7 +60,7 @@ public class SceneController implements Initializable {
             System.out.println("Password: " + password);
             System.out.println("Last Name: " + lastName);
 
-            Person p = new Person(username, password, physicalAddress, phoneNumber, physicalAddress, password, firstName, lastName);
+            Person p = new Person(username, password, email, 0, physicalAddress, String.valueOf(phoneNumber), firstName, lastName);
             Register r = new Register(p);
             r.sendData();
 
@@ -80,18 +81,33 @@ public class SceneController implements Initializable {
             String username = validateUsername(usernametext.getText());
             String password = passwordtext.getText();
             Signin s = new Signin(username, password);
-    
+           
             if ("LandLord".equals(accType.getValue())) {
                 System.out.println("Landlord");
                 Person p = s.SIGN_IN(0);
-                LandLord l = (LandLord) p;
+                if (CheckUser(p)) {
+                    LandLord l = (LandLord) p;
+                    LandlordSceneController LandlordScene = new LandlordSceneController(l);
+                    LandlordScene.SwitchToLandlordScene(event);
+                    LandlordScene.setUser(l);
+                }else{
+                    ShowLabel();
+                }
                 // Additional code for LandLord
             } else {
                 System.out.println("Tenant");
                 Person p = s.SIGN_IN(1);
-                Tenant t = (Tenant) p;
+
+                if (CheckUser(p)) {
+                    Tenant t = (Tenant) p;
+                }
+                else{
+                    ShowLabel();
+                }
                 // Additional code for Tenant
+                
             }
+        
     
         } catch (ValidationException e) {
             System.out.println("Validation Error: " + e.getMessage());
@@ -101,10 +117,20 @@ public class SceneController implements Initializable {
         }
       
     }
-
+    public boolean CheckUser(Person p){
+        if (p==null) {
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public void ShowLabel(){
+        wronglabel.setText("Wrong username or passord");
+    }
     //validationMethods
         private String validateUsername(String username) throws ValidationException {
             if (username.length() < 3 || username.length() > 20) {
+
                 throw new ValidationException("Username must be between 3 and 20 characters.");
             }
         
