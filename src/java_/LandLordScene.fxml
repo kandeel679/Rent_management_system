@@ -34,7 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="displayapartsbtn" layoutX="420.0" layoutY="248.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #ffffffff;" text="Display">
+            <Button fx:id="displayapartsbtn" layoutX="420.0" layoutY="248.0" mnemonicParsing="false" onAction="#SwitchToDisplayApartScene" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #ffffffff;" text="Display">
                <font>
                   <Font name="Arial Narrow Bold" size="13.0" />
                </font>

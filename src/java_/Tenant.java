@@ -3,8 +3,6 @@ package java_;
 import java.util.HashMap;
 
 public class Tenant extends Person {
-    private String EmergencyPersonName;
-    private String EmergencyPersonPhoneNum;
     private Apartment selectedApartment;
 
  

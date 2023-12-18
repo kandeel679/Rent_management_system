@@ -74,6 +74,21 @@ public class LandlordSceneController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+    public void SwitchToDisplayApartScene(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DisplayApartmentScene.fxml"));
+        Parent root = loader.load();
+    
+        // Get the controller instance
+        DisplayApartmentController controller = loader.getController();
+    
+        // Call the public setUser method on the controller
+        controller.setUser(user);  // Check that 'user' is not null here
+        
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     
     
     public void setUser(LandLord user) {

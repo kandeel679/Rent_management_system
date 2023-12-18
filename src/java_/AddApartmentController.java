@@ -40,6 +40,13 @@ public class AddApartmentController implements Initializable  {
     public void BackToLandlordScene(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandLordScene.fxml"));
         Parent root = loader.load();
+    
+        // Get the controller instance
+        LandlordSceneController controller = loader.getController();
+    
+        // Call the public setUser method on the controller
+        controller.setUser(user);  // Check that 'user' is not null here
+    
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

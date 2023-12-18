@@ -12,11 +12,11 @@ public class Test {
         // R.sendData();
         
         // Signin and casting the person into landlord
-            Signin s = new Signin("yassin", "12345");
-            Person p1 = s.SIGN_IN(0);
-            LandLord landlord1 = (LandLord)p1;
-            Apartment a = new Apartment(10,ApartmentType.Studio,"tgmo3-one",5000,2004,2,landlord1,6000,6000,"2023-12-12");
-            a.getApartmentNewID();
+            // Signin s = new Signin("yassin", "12345");
+            // Person p1 = s.SIGN_IN(0);
+            // LandLord landlord1 = (LandLord)p1;
+            // Apartment a = new Apartment(10,ApartmentType.Studio,"tgmo3-one",5000,2004,2,landlord1,6000,6000,"2023-12-12");
+            // a.getApartmentNewID();
 
 
             // Signin s2 = new Signin("ahmed", "1234");
