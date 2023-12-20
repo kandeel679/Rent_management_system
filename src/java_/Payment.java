@@ -9,6 +9,10 @@ public class Payment {
     private Invoice invoice;
     private boolean isPaymentComplete;
 
+    public boolean isPaymentComplete() {
+        return isPaymentComplete;
+    }
+
     public Payment(Tenant tenant, LandLord landlord, Apartment selectedApartment) {
         this.tenant = tenant;
         this.landlord = landlord;
@@ -18,11 +22,14 @@ public class Payment {
     public void generateInvoice(int dueYear,int dueMonth,int dueDay) {
         if (this.tenant.makePayment(this.selectedApartment.getDepositeAmount())==-1) {
             this.isPaymentComplete = false;
+    
             
         }else{
             this.invoice = new Invoice(this.tenant,this.landlord,this.selectedApartment, this.selectedApartment.getDepositeAmount(),dueYear, dueMonth, dueDay);
             this.landlord.AddBalance(this.selectedApartment.getDepositeAmount());
             this.tenant.chooseApartment(this.selectedApartment);
+            // this.tenant = this.selectedApartment.GetTenantByid(this.tenant.getUserName());
+            // System.out.println(this.tenant.getselectedApartId());
             this.isPaymentComplete = true;
         }
     }

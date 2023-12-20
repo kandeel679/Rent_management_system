@@ -1,13 +1,17 @@
 import sqlite3
 import uuid
 
-# DATABASE_PATH = "C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\RMS.db"
-DATABASE_PATH = "C:\\Users\\kandeel\\Desktop\\AAST\\term 3\\oop\\project\\Rent_management_system\\src\\Server\\RMS.db"
+DATABASE_PATH = "C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\RMS.db"
+# DATABASE_PATH = "C:\\Users\\kandeel\\Desktop\\AAST\\term 3\\oop\\project\\Rent_management_system\\src\\Server\\RMS.db"
 
 # Uncomment the following lines to delete all records from the user table
 # conn = sqlite3.connect(DATABASE_PATH)
 # cur = conn.cursor()
 # cur.execute('''Drop TABLE Apartment''')
+# conn.close()
+# conn = sqlite3.connect(DATABASE_PATH)
+# cur = conn.cursor()
+# cur.execute('''Drop TABLE User''')
 # conn.close()
 
 
@@ -48,6 +52,7 @@ def create_Apartment_table():
             rentamount DOUBLE,
             depositamount DOUBLE,
             PlacementDate DATE,
+            istaken int,
             FOREIGN KEY (apartmentOwnerUsername) REFERENCES User(username)
             );'''
 )
@@ -108,31 +113,25 @@ def get_apartment_info_by_id(apartment_id):
     cur = conn.cursor()
 
     try:
-        # Execute the SELECT statement
         cur.execute('''
             SELECT * FROM Apartment
             WHERE apartmentID = ?;
         ''', (apartment_id,))
 
-        # Fetch the results
         result = cur.fetchone()
 
         if result:
-            # Convert the result to a dictionary for easy access
-            columns = [column[0] for column in cur.description]
-            apartment_info = dict(zip(columns, result))
-            return apartment_info
+            # res = ','.join(map(str, result))
+            return list(result)
         else:
             print(f"No apartment found with ID {apartment_id}")
             return None
 
     except Exception as e:
-        # Handle the exception (e.g., print an error message)
         print("Error:", e)
         return None
 
     finally:
-        # Close the database connection
         conn.close()    
 def get_all_apartments():
     conn = sqlite3.connect(DATABASE_PATH)
@@ -170,7 +169,24 @@ def getmaxaprtid():
     cur.execute('''SELECT max(apartmentID) from Apartment; ''')
     results = cur.fetchall()
     return results[0][0]+1
+def setistaken(id):
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+    cur.execute('''
+                UPDATE Apartment SET isTaken = 1 WHERE apartmentID = ?
+                ''', (id,))  # Added a comma to create a tuple with a single element
+    conn.commit()  # Corrected to call commit as a function
+    conn.close()
+def getistaken(id):
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+    cur.execute('''select isTaken from Apartment where apartmentID = ?''',(id,))
     
+    res=cur.fetchone()    
+    print(res[0])
+    return res[0]
+    conn.commit()  # Corrected to call commit as a function
+    conn.close()
 #User
 def insert(username, password, email, balance, physical_add, phone_num, first_name, last_name):
     conn = sqlite3.connect(DATABASE_PATH)
@@ -234,13 +250,31 @@ def get_user_by_username(username):
     finally:
         if conn:
             conn.close()
-            
+def setApartIdbyusername(username,aprtId):
+    conn = sqlite3.connect(DATABASE_PATH)
+    cur = conn.cursor()
+    
+    #fix later 
+    #   logical error  => landlord rent his own apratment 
+    try:
+        user_data = "UPDATE User SET apartId = ? WHERE username = ?"
+        cur.execute(user_data, (aprtId, username))
+        user_data = cur.fetchone()
+        conn.commit()
+    except sqlite3.Error as e:
+        print("SQLite error:", e)
+
+    finally:
+        if conn:
+            conn.close()
 # create_user_table()
 # create_Apartment_table()
 
+# print(get_apartment_info_by_id(13))
+# setApartIdbyusername("kandeel",10)
 
-
-
+# setistaken(1)
+# getistaken(1)
 # Example usage
 
 # print(getmaxaprtid())
@@ -248,8 +282,9 @@ def get_user_by_username(username):
 # apartment_id_to_get_info = 1  # Replace with the actual ID you want to retrieve
 # apartment_info = get_apartment_info_by_id(apartment_id_to_get_info)
 # print(apartment_info)
+# insertApart(1,"onebedroom","zahra2",400,2004,4,"kandeel",4000,5000,"2023-12-1")
 
-# insert("ahmed", "1234", "youssef@adf.com", 0.0, "asdf", "01066276067", " kandeel", "youssef")
+# insert("kandeel", "joe123", "youssef@gmail.com", 0.0,"zahra2", "01066276067", " youssef", "kandeel")
 
 
     

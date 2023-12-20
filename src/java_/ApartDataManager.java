@@ -8,7 +8,7 @@ public interface ApartDataManager {
         threebedroom;
        
     }
-    static final double managementFee = 300;
-    abstract void AddApartment();
+       abstract void AddApartment();
     abstract LandLord GetLandlordById();
+    
 } 

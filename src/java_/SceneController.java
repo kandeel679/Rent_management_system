@@ -97,9 +97,11 @@ public class SceneController implements Initializable {
             } else {
                 System.out.println("Tenant");
                 Person p = s.SIGN_IN(1);
-
                 if (CheckUser(p)) {
                     Tenant t = (Tenant) p;
+                    TenantScenecontroller TenantScene = new TenantScenecontroller(t);
+                    TenantScene.SwitchToTenantScene(event);
+                    TenantScene.setUser(t);
                 }
                 else{
                     ShowLabel();

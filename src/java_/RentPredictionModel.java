@@ -55,6 +55,7 @@ public class RentPredictionModel {
             String cleanedData1 = cleanedData.replaceAll("[:\\[\\] ]", "");
     
             System.out.println("Response:" + Double.parseDouble(cleanedData1));
+            return Double.parseDouble(cleanedData1);
     
         } catch (Exception e) {
             e.printStackTrace();

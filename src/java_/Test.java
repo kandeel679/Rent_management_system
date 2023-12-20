@@ -17,11 +17,15 @@ public class Test {
             // LandLord landlord1 = (LandLord)p1;
             // Apartment a = new Apartment(10,ApartmentType.Studio,"tgmo3-one",5000,2004,2,landlord1,6000,6000,"2023-12-12");
             // a.getApartmentNewID();
-
+            // Apartment.getApartmentByid(13);
 
             // Signin s2 = new Signin("ahmed", "1234");
             // Person p2 = s2.SIGN_IN(1);
             // Tenant user = (Tenant)p2;
+            
+            // user.chooseApartment(Apartment.getApartmentByid(15));
+
+
             // AprtSearch as = new AprtSearch(user);
             // ArrayList<Apartment> aprts =as.getApartmentList();
 
@@ -29,7 +33,9 @@ public class Test {
             // p.generateInvoice(2020, 1, 1);
             // Invoice i = p.Checkout();
             // System.out.println(i.displayInvoice());
-            
+
+            // Apartment a = Apartment.getApartmentByid(2);
+            // a.IsApartmentTaken();
 
             // user.AddBalance(50000);
            

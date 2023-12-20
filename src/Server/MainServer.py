@@ -53,11 +53,6 @@ def updatebalance():
     db.update_balance(data.get("username"),float(data.get("new_balance")))
     return jsonify({"status": "success", "message": "Apartment added successfully"})
 
-@app.route('/getapartments',methods = ["GET"])
-def getapartmetns():
-    apartments = db.get_all_apartments()
-    print(apartments)
-    return jsonify({'':apartments})
 
 @app.route('/getLandlordByusername' , methods = ["POST"])
 def getLandlordByusername():
@@ -66,6 +61,13 @@ def getLandlordByusername():
     print(res)
     return jsonify({'':res}) 
     
+@app.route('/setaprtid', methods = ["POST"])
+def setaprtid():
+    data = request.get_json()
+    username = data.get('username')
+    id = int(data.get('id'))
+    db.setApartIdbyusername(username,id)
+    return jsonify({'':"successfully"})
     
 #apartment
 @app.route('/addapartment', methods=["POST"])
@@ -95,11 +97,37 @@ def add_apartment():
         response = {"status": "error", "message": "Failed to add apartment"}
         return jsonify(response)
 
+@app.route('/getapartments',methods = ["GET"])
+def getapartmetns():
+    apartments = db.get_all_apartments()
+    print(apartments)
+    return jsonify({'':apartments})
 @app.route('/getmaxapratid',methods = ["GET"])
 def getmaxapratid():
     newid=db.getmaxaprtid()
     return({'':newid})
 
+@app.route('/getapartbyid',methods = ['POST'])
+def getapartbyid():
+    data = request.get_json()
+    id=int(data.get('id'))
+    ap=db.get_apartment_info_by_id( id)
+    print(ap)
+    return jsonify({'':ap})
+
+@app.route('/setistaken',methods = ["POST"])
+def setistaken():
+    data = request.get_json()
+    id = int(data.get("id"))
+    db.setistaken(id)
+    return jsonify({'':id})
+
+@app.route('/getistaken',methods = ["POST"])
+def getistaken():
+    data = request.get_json()
+    id =int(data.get("id"))
+    res = db.getistaken(id)
+    return jsonify({'':res})
 
 
 #ai model

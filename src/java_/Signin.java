@@ -39,8 +39,15 @@ public class Signin {
                 String phoneNum = user.get(5);
                 String firstName = user.get(6);
                 String lastName = user.get(7);
+                String aprtid = user.get(8);
                 //until the Tenant class be ready to use it in 
-                this.user = new Tenant(username, password, email, balance, physicalAdd, phoneNum, firstName, lastName);
+                
+                if (aprtid.equals("null")) {
+                    this.user = new Tenant(username, password, email, balance, physicalAdd, phoneNum, firstName, lastName);
+                }else{
+                    this.user = new Tenant(username, password, email, balance, physicalAdd, phoneNum, firstName, lastName,Integer.parseInt(aprtid));
+
+                }
             }
         }
         return this.user;

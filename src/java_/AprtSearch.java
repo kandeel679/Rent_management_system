@@ -12,7 +12,7 @@ import java.net.URL;
 // import java.util.List;
 import java.util.ArrayList;
 
-import java_.ApartDataManager.ApartmentType;
+
 
 
 public class AprtSearch {
@@ -21,8 +21,8 @@ public class AprtSearch {
     public AprtSearch( Person user) {
         User = user;
     }
-    public ArrayList<Apartment> getApartmentList(){
-        this.ApartmentList = new ArrayList<>();
+    public static ArrayList<Apartment> getApartmentList(){
+        ArrayList<Apartment> aparts = new ArrayList<>();
         try {
         URL url = new URL("http://127.0.0.1:5000/getapartments");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -66,7 +66,7 @@ public class AprtSearch {
             double depositAmount = Double.parseDouble(Listofprop[8]);
             String placementDate = Listofprop[9];;
         
-            this.ApartmentList.add(new Apartment(apartmentID, apartmentType, location, area, yearBuilt, floor, ownerName, rentAmount, depositAmount, placementDate));
+            aparts.add(new Apartment(apartmentID, apartmentType, location, area, yearBuilt, floor, ownerName, rentAmount, depositAmount, placementDate));
         } 
         
        
@@ -78,7 +78,7 @@ public class AprtSearch {
     } catch (Exception e) {
         e.printStackTrace();
     }
-        return this.ApartmentList;
+        return aparts;
     }
     
 

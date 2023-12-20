@@ -16,8 +16,8 @@ public class LandLord extends Person{
 
 
     public void getApartments(){
-        AprtSearch serach = new AprtSearch(this);
-        ArrayList<Apartment> alltheApartments = serach.getApartmentList();
+       
+        ArrayList<Apartment> alltheApartments = AprtSearch.getApartmentList();
         this.Apartments =new ArrayList<>();
         for (Apartment apartment : alltheApartments) {
             if (this.UserName.equals(apartment.getOwnerName())) {
@@ -38,9 +38,5 @@ public class LandLord extends Person{
      return this.Apartments;
     }
 
-    @Override
-    public HashMap<String, String> getUserData() {
-      
-        throw new UnsupportedOperationException("Unimplemented method 'getUserData'");
-    }
+   
 }

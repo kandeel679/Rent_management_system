@@ -2,6 +2,7 @@ package java_;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -54,12 +55,26 @@ public class AddApartmentController implements Initializable  {
     }
     
     
-    
+    public void Generate(){
+        DecimalFormat decimalFormat = new DecimalFormat("#.###");
+            try {
+                double area = validateDouble(areatext, "Area");
+                int year = validateInt(yeartext, "Year");
+                int floor = validateInt(floortext, "Floor");
+                RentPredictionModel model = new RentPredictionModel(area, year, floor);
+                double prediction =model.Predict();
+                String formattedValue = decimalFormat.format(prediction);
+                renttext.setText(formattedValue);
+            } catch (ValidationException e) {
+                    System.out.println(e.toString());
+                e.printStackTrace();
+            }
+    }
     
     public void SubmeitApartment(ActionEvent event) throws IOException {
         try {
-            double area = validateDouble(areatext, "Area");
             String location = validateText(locatointext, "Location");
+            double area = validateDouble(areatext, "Area");
             int year = validateInt(yeartext, "Year");
             int floor = validateInt(floortext, "Floor");
             double rent = validateDouble(renttext, "Rent");

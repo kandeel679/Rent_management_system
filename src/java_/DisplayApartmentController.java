@@ -45,11 +45,14 @@ public class DisplayApartmentController implements Initializable {
     @FXML
     private Label placetext;
     private ArrayList<Apartment> apartlist;
-    private ArrayList<Integer>Location;
+    private ArrayList<Integer>ID;
     private String currentaprt;
     public DisplayApartmentController(){
             this.initializeControllerDisplay();
         }
+
+
+        
     public void BackToLandlordScene(ActionEvent event) throws IOException{   
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandLordScene.fxml"));
         Parent root = loader.load();
@@ -74,24 +77,24 @@ public class DisplayApartmentController implements Initializable {
         }
     }
     
-    public void setLocationString() {
-        Location = new ArrayList<>();
+    public void setIDString() {
+        ID = new ArrayList<>();
         if (apartlist != null) {
             for (Apartment aprt : apartlist) {
                 try {
                     int apartmentId = aprt.getApartmentID();
-                    Location.add(apartmentId);
+                    ID.add(apartmentId);
                 } catch (NumberFormatException e) {
                     System.err.println("Error parsing id for apartment: " + aprt.getApartmentID());
                 }
             }
-            aprtListview.getItems().addAll(Location);
+            aprtListview.getItems().addAll(ID);
         }
     }
     
     public void initializeControllerDisplay() {
         getApartmentList();
-        setLocationString();
+        setIDString();
     }
     public void Click() {
         aprtListview.getSelectionModel().selectedIndexProperty().addListener(

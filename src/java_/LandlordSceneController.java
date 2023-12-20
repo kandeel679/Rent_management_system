@@ -4,10 +4,12 @@ package java_;
 import java.io.IOException;
 import javafx.fxml.Initializable;
 import java.net.URL;
-import java.time.LocalDate;
+
 import java.util.ResourceBundle;
 
-import java_.ApartDataManager.ApartmentType;
+
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -46,7 +48,7 @@ public class LandlordSceneController implements Initializable{
     }
     public void SwitchToLandlordScene(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LandLordScene.fxml"));
-        Parent root = loader.load();
+        root = loader.load();
     
         // Get the controller instance
         LandlordSceneController controller = loader.getController();
@@ -89,8 +91,30 @@ public class LandlordSceneController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+    public void Logout(ActionEvent event )throws IOException{
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("SigninScene.fxml"));
+        Parent root = loader.load();
     
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void GoTouserprofile(ActionEvent event)throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileScene.fxml"));
+        Parent root = loader.load();
     
+        // Get the controller instance
+        UserProfileSceneController controller = loader.getController();
+    
+        // Call the public setUser method on the controller
+        controller.setUser(user);  // Check that 'user' is not null here
+        controller.setuserdata();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void setUser(LandLord user) {
         this.user = user;
     }
