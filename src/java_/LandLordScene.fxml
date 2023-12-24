@@ -11,50 +11,50 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_.LandlordSceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_.LandlordSceneController">
    <left>
-      <AnchorPane prefHeight="400.0" prefWidth="626.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="550.0" prefWidth="805.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="299.0" fitWidth="346.0" layoutX="151.0" layoutY="-53.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="347.0" fitWidth="483.0" layoutX="241.0" layoutY="-88.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Property_Real_Estate_logo_6.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="40.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click this button to add a new apartment to the system." wrappingWidth="222.13671875">
+            <Text fill="WHITE" layoutX="101.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click this button to add a new apartment to the system." wrappingWidth="243.13671875">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <Button fx:id="addapartbtn" layoutX="104.0" layoutY="248.0" mnemonicParsing="false" onAction="#SwitchToAddApartmentScene" style="-fx-background-color: #ffffffff;" text="Add Apartment">
+            <Button fx:id="addapartbtn" layoutX="136.0" layoutY="309.0" mnemonicParsing="false" onAction="#SwitchToAddApartmentScene" prefHeight="33.0" prefWidth="137.0" style="-fx-background-color: #ffffffff;" text="Add Apartment">
                <font>
-                  <Font name="Arial Narrow Bold" size="13.0" />
+                  <Font name="Arial Narrow Bold" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="displayapartsbtn" layoutX="420.0" layoutY="248.0" mnemonicParsing="false" onAction="#SwitchToDisplayApartScene" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #ffffffff;" text="Display">
+            <Button fx:id="displayapartsbtn" layoutX="523.0" layoutY="309.0" mnemonicParsing="false" onAction="#SwitchToDisplayApartScene" prefHeight="33.0" prefWidth="129.0" style="-fx-background-color: #ffffffff;" text="Display">
                <font>
-                  <Font name="Arial Narrow Bold" size="13.0" />
+                  <Font name="Arial Narrow Bold" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Line endX="-12.0" endY="136.0" layoutX="312.0" layoutY="217.0" startX="-12.0" startY="-50.0" stroke="WHITE" />
-            <Text fill="WHITE" layoutX="357.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click this button to view a list of all apartments owned." wrappingWidth="222.13671875">
+            <Line endY="218.0" layoutX="414.0" layoutY="213.0" startY="-47.0" stroke="WHITE" />
+            <Text fill="WHITE" layoutX="478.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click this button to view a list of all apartments owned." wrappingWidth="235.13671875">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <Button fx:id="logoutbtn" layoutX="516.0" layoutY="27.0" mnemonicParsing="false" onAction="#Logout" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #851e1e;" text="Logout" textFill="WHITE">
+            <Button fx:id="logoutbtn" layoutX="713.0" layoutY="24.0" mnemonicParsing="false" onAction="#Logout" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #851e1e;" text="Logout" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="accType" disable="true" layoutX="357.0" layoutY="329.0" opacity="0.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="typeapart" layoutX="77.0" layoutY="329.0" opacity="0.0" prefWidth="150.0" />
-            <Button layoutX="33.0" layoutY="28.0" mnemonicParsing="false" onAction="#GoTouserprofile" style="-fx-background-color: #263F73;" text="Profile" textFill="WHITE" underline="true">
+            <ChoiceBox fx:id="accType" disable="true" layoutX="480.0" layoutY="407.0" opacity="0.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="typeapart" layoutX="200.0" layoutY="407.0" opacity="0.0" prefWidth="150.0" />
+            <Button layoutX="26.0" layoutY="24.0" mnemonicParsing="false" onAction="#GoTouserprofile" style="-fx-background-color: #263F73;" text="Profile" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

@@ -10,120 +10,153 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_.PaymentSceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_.PaymentSceneController">
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="626.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="142.0" fitWidth="134.0" layoutX="-4.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="160.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Property_Real_Estate_logo_6.png" />
                </image>
             </ImageView>
-            <Button fx:id="Back" layoutX="516.0" layoutY="27.0" mnemonicParsing="false" onAction="#BackToTenantScene" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #851e1e;" text="Back" textFill="WHITE">
+            <Button fx:id="Back" layoutX="697.0" layoutY="34.0" mnemonicParsing="false" onAction="#BackToTenantScene" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #851e1e;" text="Back" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="accType" disable="true" layoutX="353.0" layoutY="329.0" opacity="0.0" prefWidth="150.0" />
-            <Button layoutX="402.0" layoutY="287.0" mnemonicParsing="false" onAction="#RENT" prefHeight="28.0" prefWidth="137.0" style="-fx-background-color: #3b57f7;" text="Rent" textFill="WHITE">
+            <ChoiceBox fx:id="accType" disable="true" layoutX="461.0" layoutY="412.0" opacity="0.0" prefWidth="150.0" />
+            <Button layoutX="503.0" layoutY="367.0" mnemonicParsing="false" onAction="#RENT" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b57f7;" text="Rent" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="13.0" />
+                  <Font name="Arial Black" size="16.0" />
                </font>
             </Button>
-            <Line endX="4.0" endY="265.0" layoutX="330.0" layoutY="70.0" startX="4.0" startY="-5.0" stroke="WHITE" />
-            <Label layoutX="66.0" layoutY="142.0" prefHeight="17.0" prefWidth="23.0" text="ID:" textFill="WHITE">
+            <Line endX="4.0" endY="265.0" layoutX="438.0" layoutY="153.0" startX="4.0" startY="-5.0" stroke="WHITE" />
+            <Label layoutX="83.0" layoutY="214.0" prefHeight="17.0" prefWidth="23.0" text="ID:" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="idtext" layoutX="89.0" layoutY="142.0" prefHeight="17.0" prefWidth="37.0" textFill="WHITE" />
-            <Label layoutX="66.0" layoutY="168.0" prefHeight="17.0" prefWidth="36.0" text="Type:" textFill="WHITE">
+            <Label fx:id="idtext" layoutX="106.0" layoutY="214.0" prefHeight="25.0" prefWidth="75.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="83.0" layoutY="240.0" prefHeight="25.0" prefWidth="49.0" text="Type:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="typetext" layoutX="101.0" layoutY="168.0" prefHeight="17.0" prefWidth="83.0" textFill="WHITE" />
-            <Label layoutX="63.0" layoutY="194.0" prefHeight="17.0" prefWidth="52.0" text="Location:" textFill="WHITE">
+            <Label fx:id="typetext" layoutX="130.0" layoutY="243.0" prefHeight="17.0" prefWidth="83.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="80.0" layoutY="266.0" prefHeight="25.0" prefWidth="71.0" text="Location:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="loctext" layoutX="120.0" layoutY="194.0" prefHeight="17.0" prefWidth="68.0" textFill="WHITE" />
-            <Label layoutX="64.0" layoutY="218.0" prefHeight="17.0" prefWidth="38.0" text="Area:" textFill="WHITE">
+            <Label fx:id="loctext" layoutX="151.0" layoutY="266.0" prefHeight="25.0" prefWidth="101.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="81.0" layoutY="290.0" prefHeight="25.0" prefWidth="47.0" text="Area:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="areatext" layoutX="104.0" layoutY="218.0" prefHeight="17.0" prefWidth="45.0" textFill="WHITE" />
-            <Label layoutX="64.0" layoutY="242.0" prefHeight="17.0" prefWidth="44.0" text="Year:" textFill="WHITE">
+            <Label fx:id="areatext" layoutX="124.0" layoutY="290.0" prefHeight="25.0" prefWidth="102.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="81.0" layoutY="314.0" prefHeight="17.0" prefWidth="44.0" text="Year:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="yeartext" layoutX="98.0" layoutY="242.0" prefHeight="17.0" prefWidth="56.0" textFill="WHITE" />
-            <Label layoutX="186.0" layoutY="203.0" prefHeight="17.0" prefWidth="49.0" text="Owner:" textFill="WHITE">
+            <Label fx:id="yeartext" layoutX="123.0" layoutY="314.0" prefHeight="25.0" prefWidth="88.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="253.0" layoutY="295.0" prefHeight="25.0" prefWidth="61.0" text="Owner:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="ownertext" layoutX="232.0" layoutY="203.0" prefHeight="17.0" prefWidth="77.0" textFill="WHITE" />
-            <Label layoutX="188.0" layoutY="176.0" prefHeight="17.0" prefWidth="35.0" text="Rent:" textFill="WHITE">
+            <Label fx:id="ownertext" layoutX="311.0" layoutY="295.0" prefHeight="25.0" prefWidth="118.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="255.0" layoutY="268.0" prefHeight="25.0" prefWidth="43.0" text="Rent:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="renttext" layoutX="223.0" layoutY="176.0" prefHeight="17.0" prefWidth="45.0" textFill="WHITE" />
-            <Label layoutX="63.0" layoutY="270.0" prefHeight="17.0" prefWidth="94.0" text="Placement Date:" textFill="WHITE">
+            <Label fx:id="renttext" layoutX="298.0" layoutY="268.0" prefHeight="25.0" prefWidth="109.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="80.0" layoutY="342.0" prefHeight="25.0" prefWidth="124.0" text="Placement Date:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="placetext" layoutX="159.0" layoutY="270.0" prefHeight="17.0" prefWidth="94.0" textFill="WHITE" />
-            <Label layoutX="189.0" layoutY="146.0" prefHeight="17.0" prefWidth="36.0" text="Floor:" textFill="WHITE">
+            <Label fx:id="placetext" layoutX="209.0" layoutY="342.0" prefHeight="17.0" prefWidth="94.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="256.0" layoutY="238.0" prefHeight="25.0" prefWidth="45.0" text="Floor:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="floortext" layoutX="225.0" layoutY="146.0" prefHeight="17.0" prefWidth="45.0" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="6.0" layoutY="87.0" prefHeight="44.0" prefWidth="332.0" text="Apartment Details" textFill="WHITE">
+            <Label fx:id="floortext" layoutX="303.0" layoutY="240.0" prefHeight="25.0" prefWidth="106.0" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="25.0" />
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="1.0" layoutY="151.0" prefHeight="44.0" prefWidth="441.0" text="Apartment Details" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="339.0" layoutY="65.0" prefHeight="23.0" prefWidth="74.0" text="Balance:" textFill="WHITE">
+            <Label layoutX="459.0" layoutY="148.0" prefHeight="20.0" prefWidth="74.0" text="Balance:" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="BalanceText" layoutX="401.0" layoutY="65.0" prefHeight="23.0" prefWidth="188.0" textFill="WHITE">
+            <Label fx:id="BalanceText" layoutX="541.0" layoutY="148.0" prefHeight="23.0" prefWidth="188.0" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="364.0" layoutY="125.0" prefHeight="17.0" prefWidth="48.0" text="Deposit:" textFill="WHITE">
+            <Label layoutX="492.0" layoutY="208.0" prefHeight="25.0" prefWidth="60.0" text="Deposit:" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="depostittext" layoutX="419.0" layoutY="125.0" prefHeight="17.0" prefWidth="45.0" textFill="WHITE" />
-            <Line endX="-115.0" endY="47.0" layoutX="466.0" layoutY="54.0" startX="111.0" startY="47.0" stroke="WHITE" />
-            <Label layoutX="362.0" layoutY="150.0" prefHeight="17.0" prefWidth="112.0" text="Management Fees:" textFill="WHITE">
+            <Label fx:id="depostittext" layoutX="556.0" layoutY="208.0" prefHeight="25.0" prefWidth="121.0" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font size="16.0" />
+               </font></Label>
+            <Line endX="-115.0" endY="47.0" layoutX="574.0" layoutY="137.0" startX="172.0" startY="47.0" stroke="WHITE" />
+            <Label layoutX="490.0" layoutY="233.0" prefHeight="25.0" prefWidth="138.0" text="Management Fees:" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="ManagementFeeText" layoutX="472.0" layoutY="150.0" prefHeight="17.0" prefWidth="109.0" textFill="WHITE" />
-            <Label layoutX="362.0" layoutY="180.0" prefHeight="40.0" prefWidth="119.0" text="Total Amount:" textFill="WHITE">
+            <Label fx:id="ManagementFeeText" layoutX="628.0" layoutY="233.0" prefHeight="17.0" prefWidth="109.0" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="17.0" />
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="490.0" layoutY="263.0" prefHeight="40.0" prefWidth="143.0" text="Total Amount:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="TotalAmountText" layoutX="482.0" layoutY="180.0" prefHeight="40.0" prefWidth="105.0" textFill="WHITE">
+            <Label fx:id="TotalAmountText" layoutX="645.0" layoutY="263.0" prefHeight="40.0" prefWidth="105.0" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="17.0" />
+                  <Font name="Arial Bold" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="successfullytext" alignment="CENTER" layoutX="39.0" layoutY="302.0" prefHeight="80.0" prefWidth="290.0" textFill="#14c72c">
+            <Label fx:id="successfullytext" alignment="CENTER" layoutX="80.0" layoutY="479.0" prefHeight="80.0" prefWidth="290.0" textFill="#14c72c">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

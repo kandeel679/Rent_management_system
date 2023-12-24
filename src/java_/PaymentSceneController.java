@@ -1,11 +1,8 @@
 package java_;
 
-import java.io.IOError;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.gluonhq.charm.glisten.control.Alert;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class PaymentSceneController implements Initializable {
