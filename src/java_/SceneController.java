@@ -63,6 +63,13 @@ public class SceneController implements Initializable {
             Person p = new Person(username, password, email, 0, physicalAddress, String.valueOf(phoneNumber), firstName, lastName);
             Register r = new Register(p);
             r.sendData();
+            usernametext.clear();
+            phonenumtext.clear();
+            emailtext.clear();
+            phyaddtext.clear();
+            fristnametext.clear();
+            lastnametext.clear();
+            passwordtext.clear();
 
         } catch (ValidationException e) {
             System.out.println("Validation Error: " + e.getMessage());
