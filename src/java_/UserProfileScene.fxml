@@ -20,7 +20,7 @@
                   <Image url="@Property_Real_Estate_logo_6.png" />
                </image>
             </ImageView>
-            <Button fx:id="Back" layoutX="520.0" layoutY="29.0" mnemonicParsing="false" onAction="#BackToLandlordScene" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #851e1e;" text="Back" textFill="WHITE">
+            <Button fx:id="Back" layoutX="524.0" layoutY="28.0" mnemonicParsing="false" onAction="#BackToLandlordScene" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #851e1e;" text="Back" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -37,37 +37,37 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="usernametext" layoutX="105.0" layoutY="78.0" prefHeight="17.0" prefWidth="53.0" textFill="WHITE" />
-            <Label layoutX="30.0" layoutY="167.0" prefHeight="32.0" prefWidth="113.0" text="Physical Address:" textFill="WHITE">
+            <Label fx:id="usernametext" layoutX="105.0" layoutY="78.0" prefHeight="17.0" prefWidth="83.0" textFill="WHITE" />
+            <Label layoutX="30.0" layoutY="167.0" prefHeight="32.0" prefWidth="102.0" text="Email Address:" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="emailtext" layoutX="152.0" layoutY="175.0" prefHeight="17.0" prefWidth="53.0" textFill="WHITE" />
+            <Label fx:id="emailtext" layoutX="152.0" layoutY="175.0" prefHeight="17.0" prefWidth="137.0" textFill="WHITE" />
             <Label layoutX="30.0" layoutY="102.0" prefHeight="32.0" prefWidth="81.0" text="First Name:" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="fristnametext" layoutX="98.0" layoutY="110.0" prefHeight="17.0" prefWidth="53.0" textFill="WHITE" />
+            <Label fx:id="fristnametext" layoutX="98.0" layoutY="110.0" prefHeight="17.0" prefWidth="97.0" textFill="WHITE" />
             <Label layoutX="30.0" layoutY="135.0" prefHeight="32.0" prefWidth="70.0" text="Last Name:" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="lastnametext" layoutX="98.0" layoutY="143.0" prefHeight="17.0" prefWidth="53.0" textFill="WHITE" />
+            <Label fx:id="lastnametext" layoutX="98.0" layoutY="143.0" prefHeight="17.0" prefWidth="115.0" textFill="WHITE" />
             <Label layoutX="30.0" layoutY="200.0" prefHeight="32.0" prefWidth="98.0" text="Phone Number" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="phonenumbertext" layoutX="125.0" layoutY="208.0" prefHeight="17.0" prefWidth="53.0" textFill="WHITE" />
+            <Label fx:id="phonenumbertext" layoutX="125.0" layoutY="208.0" prefHeight="17.0" prefWidth="126.0" textFill="WHITE" />
             <Label layoutX="30.0" layoutY="239.0" prefHeight="32.0" prefWidth="56.0" text="Balance:" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="balance" layoutX="85.0" layoutY="247.0" prefHeight="17.0" prefWidth="53.0" textFill="WHITE" />
+            <Label fx:id="balance" layoutX="85.0" layoutY="247.0" prefHeight="17.0" prefWidth="96.0" textFill="WHITE" />
             <TextField fx:id="v1" layoutX="477.0" layoutY="163.0" prefHeight="25.0" prefWidth="86.0" />
             <Label alignment="CENTER" layoutX="369.0" layoutY="102.0" prefHeight="46.0" prefWidth="239.0" text="Add Balance" textFill="WHITE">
                <font>
