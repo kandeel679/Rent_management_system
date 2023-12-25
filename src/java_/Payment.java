@@ -22,8 +22,6 @@ public class Payment {
     public void generateInvoice(int dueYear,int dueMonth,int dueDay) {
         if (this.tenant.makePayment(this.selectedApartment.getDepositeAmount())==-1) {
             this.isPaymentComplete = false;
-    
-            
         }else{
             this.invoice = new Invoice(this.tenant,this.landlord,this.selectedApartment, this.selectedApartment.getDepositeAmount(),dueYear, dueMonth, dueDay);
             this.landlord.AddBalance(this.selectedApartment.getDepositeAmount());

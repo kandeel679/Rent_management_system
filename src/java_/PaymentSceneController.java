@@ -48,6 +48,8 @@ public class PaymentSceneController implements Initializable {
     private Label TotalAmountText;
     @FXML
     private Label successfullytext;
+    @FXML
+    private Label Failed;
 
 
     public void BackToTenantScene(ActionEvent event)throws IOException{
@@ -108,6 +110,8 @@ public class PaymentSceneController implements Initializable {
             successfullytext.setText("Payment completed successfully!");
         }else{
             // Payment failed, Check your balance.
+            System.out.println("Payment failed, Check your balance.");
+            Failed.setText("Payment failed, Check your balance.");
         }
     }
 

@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 
 public class Invoice {
-    private static int ID=0;
     private Tenant tenant;
     private Apartment rentedApartment;
     private LandLord landlord;
@@ -13,7 +12,6 @@ public class Invoice {
     private double amount;
 
     public Invoice(Tenant tenant,LandLord landlord, Apartment rentedApartment, double amount, int dueYear,int dueMonth,int dueDay) {
-        Invoice.ID ++;
         this.tenant = tenant;
         this.rentedApartment = rentedApartment;
         this.amount = amount;
@@ -21,14 +19,7 @@ public class Invoice {
         this.dueDate = LocalDate.of(dueYear, dueMonth, dueDay);
     }
     
-    public int getID() {
-        return ID;
-    }
-    
-    public void setID(int ID) {
-        Invoice.ID = ID;
-    }
-    
+
     public Tenant getTenant() {
         return tenant;
     }
@@ -74,7 +65,6 @@ public class Invoice {
 
     public HashMap<String, Object> displayInvoice() {
         HashMap<String, Object> invoiceInfo = new HashMap<>();
-        invoiceInfo.put("ID", ID);
         invoiceInfo.put("Tenant", tenant.getUserName());
         invoiceInfo.put("Rented Apartment", rentedApartment.getLocation());
         invoiceInfo.put("Issue Date", issueDate);
@@ -83,3 +73,4 @@ public class Invoice {
         return invoiceInfo;
     }
 }
+

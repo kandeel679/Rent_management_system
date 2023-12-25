@@ -81,7 +81,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="ownertext" layoutX="311.0" layoutY="295.0" prefHeight="25.0" prefWidth="118.0" textFill="WHITE">
+            <Label fx:id="ownertext" layoutX="303.0" layoutY="295.0" prefHeight="25.0" prefWidth="118.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
@@ -156,9 +156,14 @@
                   <Font name="Arial Bold" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="successfullytext" alignment="CENTER" layoutX="80.0" layoutY="479.0" prefHeight="80.0" prefWidth="290.0" textFill="#14c72c">
+            <Label fx:id="successfullytext" alignment="CENTER" layoutX="57.0" layoutY="401.0" prefHeight="80.0" prefWidth="373.0" textFill="#14c72c">
                <font>
-                  <Font name="Arial Bold" size="18.0" />
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="Failed" layoutX="57.0" layoutY="398.0" prefHeight="79.0" prefWidth="413.0" textFill="#ab0000">
+               <font>
+                  <Font name="System Bold" size="22.0" />
                </font>
             </Label>
          </children>

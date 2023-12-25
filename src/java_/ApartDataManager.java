@@ -8,7 +8,7 @@ public interface ApartDataManager {
         threebedroom;
        
     }
-       abstract void AddApartment();
+    abstract void AddApartment();
     abstract LandLord GetLandlordById();
     
 } 
