@@ -11,12 +11,12 @@ public class Invoice {
     private LocalDate dueDate;
     private double amount;
 
-    public Invoice(Tenant tenant,LandLord landlord, Apartment rentedApartment, double amount, int dueYear,int dueMonth,int dueDay) {
+    public Invoice(Tenant tenant,LandLord landlord, Apartment rentedApartment, double amount) {
         this.tenant = tenant;
         this.rentedApartment = rentedApartment;
         this.amount = amount;
         this.issueDate = LocalDate.now();
-        this.dueDate = LocalDate.of(dueYear, dueMonth, dueDay);
+       
     }
     
 

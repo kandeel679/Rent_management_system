@@ -270,7 +270,13 @@ public Tenant GetTenantByid(String username){
         
         // StringBuilder res = response.replace(0,17,"");
         // String res2 = res.toString().replaceAll("}","").replaceAll(" ", "");
-        L =new Tenant(dataArray[0], dataArray[1], dataArray[2], Double.parseDouble(dataArray[3]), dataArray[4], dataArray[5],dataArray[6],dataArray[7],Integer.parseInt(dataArray[8]));
+        String aprtid;
+        if (dataArray[8].equals("None")) {
+            aprtid = "0";
+        }else{
+            aprtid = dataArray[8];
+        }
+        L =new Tenant(dataArray[0], dataArray[1], dataArray[2], Double.parseDouble(dataArray[3]), dataArray[4], dataArray[5],dataArray[6],dataArray[7],Integer.parseInt(aprtid));
 
         System.out.println("Response:" + L);
         

@@ -19,11 +19,11 @@ public class Payment {
         this.selectedApartment = selectedApartment;
     }
 
-    public void generateInvoice(int dueYear,int dueMonth,int dueDay) {
+    public void generateInvoice() {
         if (this.tenant.makePayment(this.selectedApartment.getDepositeAmount())==-1) {
             this.isPaymentComplete = false;
         }else{
-            this.invoice = new Invoice(this.tenant,this.landlord,this.selectedApartment, this.selectedApartment.getDepositeAmount(),dueYear, dueMonth, dueDay);
+            this.invoice = new Invoice(this.tenant,this.landlord,this.selectedApartment, this.selectedApartment.getDepositeAmount());
             this.landlord.AddBalance(this.selectedApartment.getDepositeAmount());
             this.tenant.chooseApartment(this.selectedApartment);
             // this.tenant = this.selectedApartment.GetTenantByid(this.tenant.getUserName());

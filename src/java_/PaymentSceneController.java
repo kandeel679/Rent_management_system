@@ -102,7 +102,7 @@ public class PaymentSceneController implements Initializable {
 
     public void RENT(){
         Payment p = new Payment(tenant, landlord, selectedapartment);
-        p.generateInvoice(2060, 1, 25);
+        p.generateInvoice();
         this.tenant = selectedapartment.GetTenantByid(this.tenant.getUserName());
         if (p.isPaymentComplete()) {
             // Payment completed successfully!
