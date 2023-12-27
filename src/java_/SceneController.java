@@ -100,7 +100,7 @@ public class SceneController implements Initializable {
                 }else{
                     ShowLabel();
                 }
-                // Additional code for LandLord
+                
             } else {
                 System.out.println("Tenant");
                 Person p = s.SIGN_IN(1);
@@ -113,7 +113,7 @@ public class SceneController implements Initializable {
                 else{
                     ShowLabel();
                 }
-                // Additional code for Tenant
+                
                 
             }
         

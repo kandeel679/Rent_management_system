@@ -10,12 +10,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_.ApartSearchSceneController">
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="626.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="295.0" fitWidth="310.0" layoutX="470.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="295.0" fitWidth="310.0" layoutX="465.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Property_Real_Estate_logo_6.png" />
                </image>
@@ -25,65 +26,65 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="accType" disable="true" layoutX="446.0" layoutY="368.0" opacity="0.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="displayby" layoutX="315.0" layoutY="269.0" onAction="#OnChangeDisplay" prefHeight="17.0" prefWidth="77.0" style="-fx-background-color: #FFFFFFFF;" />
             <Button layoutX="555.0" layoutY="387.0" mnemonicParsing="false" onAction="#SwitchToPaymentView" prefHeight="28.0" prefWidth="137.0" style="-fx-background-color: #3b57f7;" text="Rent" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
             <Line endX="4.0" endY="324.0" layoutX="453.0" layoutY="109.0" startX="4.0" startY="-5.0" stroke="WHITE" />
-            <ListView fx:id="aprtListview" layoutX="133.0" layoutY="331.0" prefHeight="125.0" prefWidth="200.0" style="-fx-background-color: #263F73;" />
-            <Label layoutX="84.0" layoutY="122.0" prefHeight="17.0" prefWidth="23.0" text="ID:" textFill="WHITE">
+            <ListView fx:id="aprtListview" layoutX="78.0" layoutY="333.0" prefHeight="164.0" prefWidth="131.0" style="-fx-background-color: #263F73;" />
+            <Label layoutX="56.0" layoutY="122.0" prefHeight="17.0" prefWidth="23.0" text="ID:" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="idtext" layoutX="112.0" layoutY="122.0" prefHeight="17.0" prefWidth="37.0" textFill="WHITE">
+            <Label fx:id="idtext" layoutX="84.0" layoutY="122.0" prefHeight="17.0" prefWidth="37.0" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="84.0" layoutY="148.0" prefHeight="25.0" prefWidth="44.0" text="Type:" textFill="WHITE">
+            <Label layoutX="56.0" layoutY="148.0" prefHeight="25.0" prefWidth="44.0" text="Type:" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="typetext" layoutX="133.0" layoutY="148.0" prefHeight="25.0" prefWidth="69.0" textFill="WHITE">
+            <Label fx:id="typetext" layoutX="105.0" layoutY="148.0" prefHeight="25.0" prefWidth="97.0" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="86.0" layoutY="176.0" prefHeight="25.0" prefWidth="72.0" text="Location:" textFill="WHITE">
+            <Label layoutX="58.0" layoutY="176.0" prefHeight="25.0" prefWidth="72.0" text="Location:" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="loctext" layoutX="155.0" layoutY="176.0" prefHeight="17.0" prefWidth="68.0" textFill="WHITE">
+            <Label fx:id="loctext" layoutX="127.0" layoutY="176.0" prefHeight="25.0" prefWidth="89.0" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="87.0" layoutY="205.0" prefHeight="25.0" prefWidth="43.0" text="Area:" textFill="WHITE">
+            <Label layoutX="59.0" layoutY="205.0" prefHeight="25.0" prefWidth="43.0" text="Area:" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="areatext" layoutX="133.0" layoutY="205.0" prefHeight="25.0" prefWidth="75.0" textFill="WHITE">
+            <Label fx:id="areatext" layoutX="105.0" layoutY="205.0" prefHeight="25.0" prefWidth="104.0" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="88.0" layoutY="237.0" prefHeight="25.0" prefWidth="46.0" text="Year:" textFill="WHITE">
+            <Label layoutX="60.0" layoutY="237.0" prefHeight="25.0" prefWidth="46.0" text="Year:" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="yeartext" layoutX="128.0" layoutY="237.0" prefHeight="25.0" prefWidth="78.0" textFill="WHITE">
+            <Label fx:id="yeartext" layoutX="100.0" layoutY="237.0" prefHeight="25.0" prefWidth="98.0" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="88.0" layoutY="269.0" prefHeight="25.0" prefWidth="60.0" text="Owner:" textFill="WHITE">
+            <Label layoutX="60.0" layoutY="269.0" prefHeight="25.0" prefWidth="60.0" text="Owner:" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="ownertext" layoutX="148.0" layoutY="269.0" prefHeight="25.0" prefWidth="127.0" textFill="WHITE">
+            <Label fx:id="ownertext" layoutX="120.0" layoutY="269.0" prefHeight="25.0" prefWidth="127.0" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -123,6 +124,11 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
+            <Text fill="WHITE" layoutX="233.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIsplay By:" wrappingWidth="78.13671875">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </center>

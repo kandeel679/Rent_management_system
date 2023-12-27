@@ -335,7 +335,7 @@ public static Apartment getApartmentByid(int id){
 
         aprt = new Apartment(Integer.parseInt(dataArray[0]),dataArray[1],dataArray[2],Double.parseDouble(dataArray[3]),Integer.parseInt(dataArray[4]),
                             Integer.parseInt(dataArray[5]),dataArray[6],Double.parseDouble(dataArray[7]),Double.parseDouble(dataArray[8]),dataArray[9]);
-        System.out.println("Response:" + aprt.getArea());
+        
         
         return aprt;
         

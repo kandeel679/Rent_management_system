@@ -3,6 +3,7 @@ package java_;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ObservableValue;
@@ -13,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -45,11 +47,17 @@ public class ApartSearchSceneController implements Initializable {
     private Label placetext;
 
     @FXML
-    private ListView<Integer> aprtListview;
+    private ListView<String> aprtListview;
 
     private ArrayList<Apartment> ApartmentList;
-    private ArrayList<Integer> ID;
-    private int id;
+    private Apartment ApartmentSelected; 
+    private ArrayList<String> ApartlistTolistview;
+    @FXML 
+    private ChoiceBox<String> displayby;
+   
+    
+    private String[] aprtProp = {"Location","Area","Year","Rent","Deposit","Floor"};
+    
 
     public void BackToTenantScene(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TenantScene.fxml"));
@@ -63,24 +71,45 @@ public class ApartSearchSceneController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public String DisplayByX(Apartment aprt, String X) {
+        if ("Location".equals(X)) {
+            return aprt.getLocation();
+        } else if ("Area".equals(X)) {
+            return Double.toString(aprt.getArea());
+        } else if ("Year".equals(X)) {
+            return Integer.toString(aprt.getYearBuilt());
+        } else if ("Rent".equals(X)) {
+            return Double.toString(aprt.getRentAmount());
+        } else if ("Deposit".equals(X)) {
+            return Double.toString(aprt.getDepositeAmount());
+        } else if ("Floor".equals(X)) {
+            return Integer.toString(aprt.getFloor());
+        } else {
+            return " ";
+        }
+    }
 
     public void getApartmentsList() {
         this.ApartmentList = AprtSearch.getApartmentList();
-        ID = new ArrayList<>();
-        if (aprtListview != null) { // Check if aprtListview is not null
-            aprtListview.getItems().clear(); // Clear existing items
+        ApartlistTolistview = new ArrayList<>();
+        if (aprtListview != null) { 
+            aprtListview.getItems().clear(); 
             if (ApartmentList != null) {
                 for (Apartment aprt : ApartmentList) {
                     try {
                         if (!(aprt.IsApartmentTaken().equals("1"))) {
-                            int apartmentId = aprt.getApartmentID();
-                            ID.add(apartmentId);
+                            // int apartmentId = aprt.getApartmentID();
+                            
+                            String combinedInfo = String.valueOf(aprt.getApartmentID())+" --> "+DisplayByX(aprt,displayby.getValue());
+                            System.out.println(combinedInfo);
+                            ApartlistTolistview.add(combinedInfo);
                         }
                     } catch (NumberFormatException e) {
                         System.err.println("Error parsing id for apartment: " + aprt.getApartmentID());
                     }
                 }
-                aprtListview.getItems().addAll(ID);
+                
+                aprtListview.getItems().addAll(ApartlistTolistview);
             }
         }
     }
@@ -88,42 +117,46 @@ public class ApartSearchSceneController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PaymentScene.fxml"));
         Parent root = loader.load();
     
-       
+        
         PaymentSceneController controller = loader.getController();
-    
+        
       
         controller.setTenant(user); 
-        Apartment a = Apartment.getApartmentByid(this.id);
-        controller.setSelectedApartment(a);
-        controller.setLandlord(a.GetLandlordById());
+        controller.setSelectedApartment(ApartmentSelected);
+        controller.setLandlord(ApartmentSelected.GetLandlordById());
         controller.setPage();
-
+        
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+    public void OnChangeDisplay(){
+        getApartmentsList();
+    }
     public void Click() {
         aprtListview.getSelectionModel().selectedIndexProperty().addListener(
-                (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-
-                    this.id = aprtListview.getSelectionModel().getSelectedItem();
-                    for (Apartment aprt : ApartmentList) {
-                        if (aprt.getApartmentID() == id) {
-                            idtext.setText(String.valueOf(id));
-                            typetext.setText(aprt.getStringApartmentType());
-                            loctext.setText(aprt.getLocation());
-                            areatext.setText(String.valueOf(aprt.getArea()));
-                            floortext.setText(String.valueOf(aprt.getFloor()));
-                            yeartext.setText(String.valueOf(aprt.getYearBuilt()));
-                            ownertext.setText(aprt.getOwnerName());
-                            renttext.setText(String.valueOf(aprt.getRentAmount()));
-                            depostittext.setText(String.valueOf(aprt.getDepositeAmount()));
-                            placetext.setText(aprt.getPlacementDate());
-                        }
-                    }
-
-                }
+            (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
+                
+                
+                
+                String SelecetedaprtFromListView = aprtListview.getSelectionModel().getSelectedItem();
+                int ID = Integer.parseInt(SelecetedaprtFromListView.split(" --> ")[0]);
+                this.ApartmentSelected = Apartment.getApartmentByid(ID);
+                        idtext.setText(String.valueOf(ID));
+                        typetext.setText(ApartmentSelected.getStringApartmentType());
+                        loctext.setText(ApartmentSelected.getLocation());
+                        areatext.setText(String.valueOf(ApartmentSelected.getArea()));
+                        floortext.setText(String.valueOf(ApartmentSelected.getFloor()));
+                        yeartext.setText(String.valueOf(ApartmentSelected.getYearBuilt()));
+                        ownertext.setText(ApartmentSelected.getOwnerName());
+                        renttext.setText(String.valueOf(ApartmentSelected.getRentAmount()));
+                        depostittext.setText(String.valueOf(ApartmentSelected.getDepositeAmount()));
+                        placetext.setText(ApartmentSelected.getPlacementDate());
+                    
+          
+                
+                }   
         );
     }
 
@@ -131,9 +164,15 @@ public class ApartSearchSceneController implements Initializable {
         this.user = user;
     }
 
+    public void initializeingChoiceBoxes(){
+        displayby.getItems().addAll(aprtProp);
+        displayby.setValue(aprtProp[0]); 
+
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initializeingChoiceBoxes();
         Click();
-        getApartmentsList(); // Initialize the apartment list
+        getApartmentsList();
     }
 }

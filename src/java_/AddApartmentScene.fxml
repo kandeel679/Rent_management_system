@@ -27,71 +27,76 @@
                </font>
             </Button>
             <ChoiceBox fx:id="accType" disable="true" layoutX="446.0" layoutY="376.0" opacity="0.0" prefWidth="150.0" />
-            <Label layoutX="37.0" layoutY="158.0" prefHeight="17.0" prefWidth="54.0" text="Type" textFill="WHITE">
+            <Label layoutX="40.0" layoutY="117.0" prefHeight="17.0" prefWidth="54.0" text="Type" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="277.0" layoutY="237.0" prefHeight="23.0" prefWidth="76.0" text="Location" textFill="WHITE">
+            <Label layoutX="280.0" layoutY="196.0" prefHeight="23.0" prefWidth="76.0" text="Location" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="typeapart" layoutX="91.0" layoutY="157.0" prefHeight="25.0" prefWidth="129.0" />
-            <TextField fx:id="locatointext" layoutX="369.0" layoutY="237.0" prefHeight="25.0" prefWidth="98.0" />
-            <Label layoutX="39.0" layoutY="201.0" prefHeight="23.0" prefWidth="60.0" text="Area" textFill="WHITE">
+            <ChoiceBox fx:id="typeapart" layoutX="94.0" layoutY="116.0" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #FFFFFFFF;" />
+            <TextField fx:id="locatointext" layoutX="372.0" layoutY="196.0" prefHeight="25.0" prefWidth="98.0" />
+            <Label layoutX="42.0" layoutY="160.0" prefHeight="23.0" prefWidth="60.0" text="Area" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="areatext" layoutX="92.0" layoutY="200.0" prefHeight="25.0" prefWidth="161.0">
+            <TextField fx:id="areatext" layoutX="95.0" layoutY="159.0" prefHeight="25.0" prefWidth="161.0">
                <font>
                   <Font size="13.0" />
                </font></TextField>
-            <Label layoutX="39.0" layoutY="249.0" prefHeight="23.0" prefWidth="54.0" text="Year" textFill="WHITE">
+            <Label layoutX="42.0" layoutY="208.0" prefHeight="23.0" prefWidth="54.0" text="Year" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="yeartext" layoutX="91.0" layoutY="248.0" prefHeight="25.0" prefWidth="161.0">
+            <TextField fx:id="yeartext" layoutX="94.0" layoutY="207.0" prefHeight="25.0" prefWidth="161.0">
                <font>
                   <Font size="13.0" />
                </font></TextField>
-            <Label layoutX="37.0" layoutY="302.0" prefHeight="23.0" prefWidth="78.0" text="Floor" textFill="WHITE">
+            <Label layoutX="40.0" layoutY="261.0" prefHeight="23.0" prefWidth="78.0" text="Floor" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="floortext" layoutX="92.0" layoutY="301.0" prefHeight="25.0" prefWidth="159.0">
+            <TextField fx:id="floortext" layoutX="95.0" layoutY="260.0" prefHeight="25.0" prefWidth="159.0">
                <font>
                   <Font size="13.0" />
                </font></TextField>
-            <Label layoutX="275.0" layoutY="290.0" prefHeight="23.0" prefWidth="80.0" text="Rent" textFill="WHITE">
+            <Label layoutX="281.0" layoutY="249.0" prefHeight="23.0" prefWidth="87.0" text="Rent" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="renttext" layoutX="366.0" layoutY="290.0" prefHeight="25.0" prefWidth="100.0" />
-            <Label layoutX="278.0" layoutY="177.0" prefHeight="23.0" prefWidth="75.0" text="Deposit" textFill="WHITE">
+            <TextField fx:id="renttext" layoutX="369.0" layoutY="249.0" prefHeight="25.0" prefWidth="100.0" />
+            <Label layoutX="281.0" layoutY="136.0" prefHeight="23.0" prefWidth="75.0" text="Deposit" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="deposittext" layoutX="371.0" layoutY="176.0" prefHeight="25.0" prefWidth="96.0" />
+            <TextField fx:id="deposittext" layoutX="374.0" layoutY="135.0" prefHeight="25.0" prefWidth="96.0" />
             <Button layoutX="580.0" layoutY="344.0" mnemonicParsing="false" onAction="#SubmeitApartment" prefHeight="28.0" prefWidth="137.0" style="-fx-background-color: #3b57f7;" text="Submit" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="13.0" />
                </font>
             </Button>
-            <Line endX="4.0" endY="265.0" layoutX="500.0" layoutY="121.0" startX="4.0" startY="-5.0" stroke="WHITE" />
-            <Text fill="WHITE" layoutX="62.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click this button to have the AI generate the rent amount based on your data." wrappingWidth="215.13671875">
+            <Line endX="4.0" endY="343.0" layoutX="505.0" layoutY="89.0" startX="4.0" startY="-23.0" stroke="WHITE" />
+            <Text fill="WHITE" layoutX="43.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click this button to have the AI generate the rent amount based on your data." wrappingWidth="243.13671875">
                <font>
-                  <Font name="Arial" size="13.0" />
+                  <Font name="Arial" size="11.0" />
                </font>
             </Text>
-            <Button layoutX="355.0" layoutY="346.0" mnemonicParsing="false" onAction="#Generate" prefHeight="24.0" prefWidth="73.0" style="-fx-background-color: #1e9478;" text="GENERATE" textFill="WHITE" />
-            <Label layoutX="52.0" layoutY="217.0" prefHeight="17.0" prefWidth="25.0" text="(sqf)" textFill="WHITE" />
-            <Label layoutX="47.0" layoutY="272.0" prefHeight="17.0" prefWidth="34.0" text="(Built)" textFill="WHITE" />
+            <Button layoutX="371.0" layoutY="404.0" mnemonicParsing="false" onAction="#Generate" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #1e9478;" text="GENERATE" textFill="WHITE" />
+            <Label layoutX="55.0" layoutY="176.0" prefHeight="17.0" prefWidth="25.0" text="(sqf)" textFill="WHITE" />
+            <Label layoutX="50.0" layoutY="231.0" prefHeight="17.0" prefWidth="34.0" text="(Built)" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="42.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The application implements a trained machine learning (Linear regression) model to assist landlords in determining competitive and fair rental prices for their apartments. The model considers factors like YearBuilt, size, FLoor to provide a simple recommendation." textAlignment="JUSTIFY" wrappingWidth="453.13671875">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </center>
