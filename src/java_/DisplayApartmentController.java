@@ -51,6 +51,11 @@ public class DisplayApartmentController implements Initializable {
     @FXML 
     private ChoiceBox<String> displayby;
     private String[] aprtProp = {"Location","Area","Year","Rent","Deposit","Floor"};
+    @FXML
+    private Label text;
+
+
+
     public DisplayApartmentController(){
             this.initializeControllerDisplay();
         }
@@ -97,6 +102,12 @@ public class DisplayApartmentController implements Initializable {
             return " ";
         }
     }
+
+    public void onChangeBox(){
+        setIDString();
+        text.setText(displayby.getValue());
+
+    }
     public void setIDString() {
         ApartlistTolistview = new ArrayList<>();
         if (apartlist != null) {
@@ -122,18 +133,20 @@ public class DisplayApartmentController implements Initializable {
             (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
 
                 String SelecetedaprtFromListView = aprtListview.getSelectionModel().getSelectedItem();
-                int ID = Integer.parseInt(SelecetedaprtFromListView.split(" --> ")[0]);
-                Apartment a = Apartment.getApartmentByid(ID);
-                idtext.setText(String.valueOf(ID));
-                typetext.setText(a.getStringApartmentType());
-                loctext.setText(a.getLocation());
-                areatext.setText(String.valueOf(a.getArea()));
-                floortext.setText(String.valueOf(a.getFloor()));
-                yeartext.setText(String.valueOf(a.getYearBuilt()));
-                ownertext.setText(a.getOwnerName());
-                renttext.setText(String.valueOf(a.getRentAmount()));
-                depostittext.setText(String.valueOf(a.getDepositeAmount()));
-                placetext.setText(a.getPlacementDate());
+                if (SelecetedaprtFromListView!=null) {
+                    int ID = Integer.parseInt(SelecetedaprtFromListView.split(" --> ")[0]);
+                    Apartment a = Apartment.getApartmentByid(ID);
+                    idtext.setText(String.valueOf(ID));
+                    typetext.setText(a.getStringApartmentType());
+                    loctext.setText(a.getLocation());
+                    areatext.setText(String.valueOf(a.getArea()));
+                    floortext.setText(String.valueOf(a.getFloor()));
+                    yeartext.setText(String.valueOf(a.getYearBuilt()));
+                    ownertext.setText(a.getOwnerName());
+                    renttext.setText(String.valueOf(a.getRentAmount()));
+                    depostittext.setText(String.valueOf(a.getDepositeAmount()));
+                    placetext.setText(a.getPlacementDate());
+                }
             
                 
             }
@@ -149,6 +162,7 @@ public class DisplayApartmentController implements Initializable {
     //    aprtListview.getItems().addAll(Location);
         displayby.getItems().addAll(aprtProp);
         displayby.setValue(aprtProp[0]); 
+        text.setText(displayby.getValue());
         Click();
     }
     

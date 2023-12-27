@@ -45,6 +45,8 @@ public class ApartSearchSceneController implements Initializable {
     private Label depostittext;
     @FXML
     private Label placetext;
+    @FXML
+    private Label text;
 
     @FXML
     private ListView<String> aprtListview;
@@ -132,27 +134,29 @@ public class ApartSearchSceneController implements Initializable {
         stage.show();
     }
     public void OnChangeDisplay(){
-        getApartmentsList();
+        getApartmentsList();    
+        text.setText(displayby.getValue());
     }
     public void Click() {
         aprtListview.getSelectionModel().selectedIndexProperty().addListener(
             (ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
                 
                 
-                
                 String SelecetedaprtFromListView = aprtListview.getSelectionModel().getSelectedItem();
-                int ID = Integer.parseInt(SelecetedaprtFromListView.split(" --> ")[0]);
-                this.ApartmentSelected = Apartment.getApartmentByid(ID);
-                        idtext.setText(String.valueOf(ID));
-                        typetext.setText(ApartmentSelected.getStringApartmentType());
-                        loctext.setText(ApartmentSelected.getLocation());
-                        areatext.setText(String.valueOf(ApartmentSelected.getArea()));
-                        floortext.setText(String.valueOf(ApartmentSelected.getFloor()));
-                        yeartext.setText(String.valueOf(ApartmentSelected.getYearBuilt()));
-                        ownertext.setText(ApartmentSelected.getOwnerName());
-                        renttext.setText(String.valueOf(ApartmentSelected.getRentAmount()));
-                        depostittext.setText(String.valueOf(ApartmentSelected.getDepositeAmount()));
-                        placetext.setText(ApartmentSelected.getPlacementDate());
+                if (SelecetedaprtFromListView != null) {
+                    int ID = Integer.parseInt(SelecetedaprtFromListView.split(" --> ")[0]);
+                    this.ApartmentSelected = Apartment.getApartmentByid(ID);
+                            idtext.setText(String.valueOf(ID));
+                            typetext.setText(ApartmentSelected.getStringApartmentType());
+                            loctext.setText(ApartmentSelected.getLocation());
+                            areatext.setText(String.valueOf(ApartmentSelected.getArea()));
+                            floortext.setText(String.valueOf(ApartmentSelected.getFloor()));
+                            yeartext.setText(String.valueOf(ApartmentSelected.getYearBuilt()));
+                            ownertext.setText(ApartmentSelected.getOwnerName());
+                            renttext.setText(String.valueOf(ApartmentSelected.getRentAmount()));
+                            depostittext.setText(String.valueOf(ApartmentSelected.getDepositeAmount()));
+                            placetext.setText(ApartmentSelected.getPlacementDate());
+                }
                     
           
                 
@@ -174,5 +178,7 @@ public class ApartSearchSceneController implements Initializable {
         initializeingChoiceBoxes();
         Click();
         getApartmentsList();
+        text.setText(displayby.getValue());
+
     }
 }

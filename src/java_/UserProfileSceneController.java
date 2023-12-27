@@ -29,9 +29,9 @@ public class UserProfileSceneController {
     private Label balance;
     @FXML
     private TextField v1;
-
-
-
+    
+    
+    
     public void BackToLandlordScene(ActionEvent event)throws IOException{
 
         if (this.user instanceof LandLord) {
@@ -71,7 +71,7 @@ public class UserProfileSceneController {
         phonenumbertext.setText(data.get("phonenum"));
         balance.setText(data.get("balance"));
     }
-
+    
     public void addintoacc(){
         String value=v1.getText();
         if(!value.matches("\\d*")){
@@ -80,6 +80,8 @@ public class UserProfileSceneController {
             double num=Double.parseDouble(value);
             this.user.AddBalance(num);
             System.out.println("is number");
+            HashMap<String,String> data = this.user.getUserData();
+            balance.setText(data.get("balance"));
         }
     }
     public void setUser(Person user){
