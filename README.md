@@ -38,5 +38,3 @@ The application employs a trained machine learning model to assist landlords in 
 ## Contributors
 
 - kandeel679
-- [Contributor 1]
-- [Contributor 2]
