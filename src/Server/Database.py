@@ -4,21 +4,18 @@ import uuid
 DATABASE_PATH = "C:\\Users\\youss\\OneDrive\\Desktop\\AAST\\term 3\\oop_project\\Rent_management_system\\src\\Server\\RMS.db"
 # DATABASE_PATH = "C:\\Users\\kandeel\\Desktop\\AAST\\term 3\\oop\\project\\Rent_management_system\\src\\Server\\RMS.db"
 
-# Uncomment the following lines to delete all records from the user table
+# Uncomment the following lines to delete all tables from the database
 # conn = sqlite3.connect(DATABASE_PATH)
 # cur = conn.cursor()
 # cur.execute('''Drop TABLE Apartment''')
 # conn.close()
 # conn = sqlite3.connect(DATABASE_PATH)
 # cur = conn.cursor()
-# cur.execute('''Drop TABLE User''')
+# cur.execute('''Drop TABLE User;''')
 # conn.close()
 
 
-# conn = sqlite3.connect(DATABASE_PATH)
-# cur = conn.cursor()
-# cur.execute('''DELETE FROM Apartment WHERE apartmentID = 8;''')
-# conn.close()
+
 
 def create_user_table():
     conn = sqlite3.connect(DATABASE_PATH)
