@@ -32,7 +32,7 @@ The application employs a trained machine learning model to assist landlords in 
 
 - JavaFX for the user interface
 - SQLite for database management
-- Flask for the server-side application
+- Flask for the server-side application(RESTful APIs)
 - scikit-learn for Machine learning and price prediction
 
 ## Contributors
